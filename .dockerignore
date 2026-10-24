@@ -1,0 +1,8 @@
+# Send only release files and container configuration to the builder.
+**
+!dist/
+!dist/**
+!deploy/
+!deploy/nginx/
+!deploy/nginx/nginx.conf
+!deploy/nginx/uu-english.conf

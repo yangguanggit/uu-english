@@ -16,7 +16,9 @@ uu-english/
 ├── data/                  # 随版本发布的课程数据
 ├── styles/                # 基础、功能与成长互动样式
 ├── audio/                 # adult/、child/、standard/ 按功能细分；metadata/ 存清单
-├── deploy/nginx/          # Nginx vhost 配置模板
+├── Dockerfile             # 内置 dist 的非 root Nginx 镜像
+├── .dockerignore          # 镜像构建上下文白名单
+├── deploy/nginx/          # 容器完整配置及独立 vhost
 ├── scripts/               # 预览、构建和音色制作工具
 ├── tests/                 # 当前回归、helpers/、legacy/ 历史脚本
 ├── docs/                  # 来源说明与更新日志
@@ -49,7 +51,7 @@ node scripts/build.cjs                           # 更新清单并生成 dist/
 python3 scripts/serve.py --root dist --port 5181 --disable-diagnostics # 并行预览发布产物
 ```
 
-推荐测试环境使用 `npm run build` 生成 dist，再由现有 Nginx 提供静态服务，无需 Python、自建镜像或 FFmpeg。配置和发布／回滚步骤见[部署说明](docs/DEPLOYMENT.md)，[vhost 模板](deploy/nginx/uu-english.conf)。正式 MP3 在资源目录直接维护，字母及标准单音保留 WAV；原始录音归档到项目外。
+可直接运行公共镜像 `ghcr.io/yangguanggit/uu-english:1.0.0`；自行构建时先使用 `npm run build` 生成 dist，再通过根目录 Dockerfile 打包。也可由现有 Nginx 挂载持久化目录提供静态服务。两种方式均无需 Python 或 FFmpeg。公共镜像运行命令、本地构建、GHCR 推送、集群配置及发布／回滚步骤见[部署说明](docs/DEPLOYMENT.md)，独立目录发布使用 [vhost 模板](deploy/nginx/uu-english.conf)。正式 MP3 在资源目录直接维护，字母及标准单音保留 WAV；原始录音归档到项目外。
 
 部署 **`dist/` 的全部内容**，站点根目录指向其中的 `index.html`。使用 HTTPS，保留 `audio/` 相对地址及根路径 `sw.js`。构建只替换自己生成的 `dist/`，请勿在其中存放手工维护文件。
 

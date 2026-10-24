@@ -12,7 +12,7 @@
 | [WORD-IPA-CREDITS.txt](WORD-IPA-CREDITS.txt) | 单词 IPA 来源与编辑口径 |
 | [PHONICS-CREDITS.md](PHONICS-CREDITS.md) | 自然拼读说明与来源 |
 | [音频说明](../audio/README.md) | 媒体清单、音源及许可入口 |
-| [DEPLOYMENT.md](DEPLOYMENT.md) | 静态构建、Nginx vhost、无自建镜像发布与回滚 |
+| [DEPLOYMENT.md](DEPLOYMENT.md) | 静态构建、Docker／GHCR 发布、Nginx 目录发布与回滚 |
 | [CHANGELOG.md](CHANGELOG.md) | 从 1.0.0 开始的版本历史；未发布变更单独记录 |
 
 本目录只存长期维护文档。操作步骤放在所属 README，变更历史写入 CHANGELOG；临时审查报告、截图和日志放到项目外诊断目录。构建成功不等于已部署。
