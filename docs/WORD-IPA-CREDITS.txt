@@ -1,0 +1,64 @@
+Word IPA transcriptions — General American (broad phonemic notation)
+
+Base dictionary: open-dict-data/ipa-dict, data/en_US.txt
+https://github.com/open-dict-data/ipa-dict
+https://raw.githubusercontent.com/open-dict-data/ipa-dict/master/data/en_US.txt
+
+500 common words/phrases and 6 additional unique phoneme example words.
+Dictionary variants are selected for the lesson's meaning; read is present-tense
+/rid/, windy describes weather /ˈwɪndi/, tomato uses /təˈmeɪtoʊ/.
+T-shirt's /ʃ/ is corrected; three missing phrases have curated transcriptions.
+Broad notation uses r/l instead of narrow ɹ/ɫ, restores stressed STRUT /ʌ/
+where the base dictionary uses ə, and omits stress on monosyllables.
+The symbols i/u are broad American phonemes, consistent with the IPA lesson;
+length marks and detailed allophones are not displayed. Existing recordings
+are unchanged. These labels are dictionary pronunciations, not forced alignment
+or a claim that every synthetic recording has been human-audited.
+
+Sense references:
+https://dictionary.cambridge.org/us/dictionary/english/read
+https://assets.cambridge.org/97813166/28317/index/9781316628317_index.pdf
+
+Base dictionary license (retained below):
+The MIT License (MIT)
+
+Copyright (c) 2016 dohliam
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+1017.14 adds 72 curated everyday vocabulary transcriptions, keeping the same broad American notation. Soccer is used for association football to match the American pronunciation voice.
+
+1017.16 adds 120 words in 10 daily-life categories. Dictionary candidates are
+reviewed for stress and meaning rather than copied blindly. Overrides include:
+umbrella /ʌmˈbrɛlə/, museum /mjuˈziəm/, octopus /ˈɑktəpəs/,
+penguin /ˈpɛŋɡwɪn/, whale /weɪl/, stapler /ˈsteɪplɝ/.
+The close card teaches the verb /kloʊz/; its fixed Samantha clip is synthesized
+from the homophone “cloze”, recorded as sourceText in the audio manifest.
+Cambridge references (transcriptions only; no dictionary audio downloaded):
+https://dictionary.cambridge.org/us/dictionary/english/umbrella
+https://dictionary.cambridge.org/pronunciation/english/museum
+https://dictionary.cambridge.org/pronunciation/english/octopus
+https://dictionary.cambridge.org/us/pronunciation/english/penguin
+https://dictionary.cambridge.org/us/pronunciation/english/whale
+https://assets.cambridge.org/97813166/31744/index/9781316631744_index.pdf
+
+Build 1017.18 adds 12 editorial broad-American transcriptions: sky, bamboo,
+seat, gate, blanket, pillow, lunch, nest, pond, bridge, tunnel, bench.
+These are lesson labels; no new authority or human-audio audit is claimed.
+
+1018.39 additions: 80 broad General American transcriptions are editorially maintained, including explicit stress and silent-letter maps. They are not new recordings from the linked dictionary.

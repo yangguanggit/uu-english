@@ -1,0 +1,25 @@
+UU说英语 — 儿童音色来源与制作说明
+
+生成日期：2026-10-18（Asia/Shanghai）
+英文：Microsoft en-US-AnaNeural，微软列为 Female, Child。
+中文：Microsoft zh-CN-YunxiaNeural，Edge 当前音色目录标记 Cute、Cartoon/Novel。
+中英文为两个不同的说话人；不声称完全相同的声线。
+
+使用 edge-tts 7.3.1 访问 Microsoft Edge 在线朗读，生成时无需项目方提供云服务账号或 API Key。
+原速、原音高生成，MP3 解码为单声道 24 kHz、16-bit PCM WAV；不以变调模拟童声。
+生成后的 PCM WAV 为原始制作归档。现有正式普通语音使用 64 kbps、单声道 24 kHz MP3，字母保留 WAV；不在线调用朗读服务，下载主题包后可离线播放。
+
+当前覆盖数量以 child-voice-manifest.json 为准，包含后续补充的场景、分支及句型。
+文件按音色／功能模块分类，同音色内字节完全相同的录音共用；逻辑引用和语速保留。原始 WAV 归档在项目外；标准真人单音不压缩。
+文本、音色、完整 SHA-256 与检查范围见 child-voice-manifest.json。
+
+试听范围：用户已确认英文对话与中文样音的声音风格；并非所有录音均经过人工逐条听审。
+自动检查覆盖引用完整性、PCM 格式、时长、非静音和哈希；不能代替发音准确度评估。
+
+来源：
+https://github.com/rany2/edge-tts
+https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support
+
+edge-tts 是第三方制作工具，不是 Microsoft 官方云 API；在线服务的后续可用性不作保证。
+工具代码的 LGPL-3.0 许可不自动授予生成音频的全部使用权；音源使用以 Microsoft 适用条款为准。
+本文件不声称获得 Microsoft 的产品背书，也不将工具代码许可冒充音频授权。

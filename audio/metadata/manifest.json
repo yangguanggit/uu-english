@@ -1,0 +1,602 @@
+[
+  {
+    "file": "find-milk.wav",
+    "text": "Find the milk.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 0.84
+  },
+  {
+    "file": "milk-please.wav",
+    "text": "Milk, please.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.07
+  },
+  {
+    "file": "milk-please-slow.wav",
+    "text": "Milk, please.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 115,
+    "seconds": 1.19
+  },
+  {
+    "file": "apple-or-bread.wav",
+    "text": "An apple or bread?",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.05
+  },
+  {
+    "file": "apple-please.wav",
+    "text": "An apple, please.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.27
+  },
+  {
+    "file": "bread-please.wav",
+    "text": "Bread, please.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.02
+  },
+  {
+    "file": "milk-hint.wav",
+    "text": "Milk. Find the milk.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.46
+  },
+  {
+    "file": "milk-thanks.wav",
+    "text": "Yes! Milk! Thank you.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.93
+  },
+  {
+    "file": "yes-milk.wav",
+    "text": "Yes! Milk!",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.08
+  },
+  {
+    "file": "here-you-are.wav",
+    "text": "Here you are!",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 0.72
+  },
+  {
+    "file": "thank-you-friend.wav",
+    "text": "Thank you, my friend!",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.46
+  },
+  {
+    "file": "parent-demo.wav",
+    "text": "Milk or water? Milk, please. Here you are!",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 3.03
+  },
+  {
+    "file": "milk.wav",
+    "text": "Milk.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 0.41
+  },
+  {
+    "file": "good-morning.wav",
+    "text": "Good morning.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 0.65
+  },
+  {
+    "file": "park-find-bird.wav",
+    "text": "Find the bird.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 0.83
+  },
+  {
+    "file": "park-yes-bird.wav",
+    "text": "Yes! A bird!",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.14
+  },
+  {
+    "file": "park-under-tree.wav",
+    "text": "Under the tree.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 0.79
+  },
+  {
+    "file": "park-under-tree-slow.wav",
+    "text": "Under the tree.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 115,
+    "seconds": 0.87
+  },
+  {
+    "file": "park-look-tree.wav",
+    "text": "Look under the tree.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.0
+  },
+  {
+    "file": "park-parent.wav",
+    "text": "Where is it? Under the tree. Great job!",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 2.44
+  },
+  {
+    "file": "dress-find-hat.wav",
+    "text": "Find the red hat.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.05
+  },
+  {
+    "file": "dress-yes-hat.wav",
+    "text": "Yes! The red hat!",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.37
+  },
+  {
+    "file": "dress-my-hat.wav",
+    "text": "My red hat.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 0.75
+  },
+  {
+    "file": "dress-my-hat-slow.wav",
+    "text": "My red hat.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 115,
+    "seconds": 0.83
+  },
+  {
+    "file": "dress-put-hat.wav",
+    "text": "Put on your hat.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 0.86
+  },
+  {
+    "file": "dress-put-shoes.wav",
+    "text": "Put on your shoes.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 0.97
+  },
+  {
+    "file": "dress-parent.wav",
+    "text": "My red hat. Put on your hat. Put on your shoes. Let us go!",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 3.97
+  },
+  {
+    "file": "toys-find-ball.wav",
+    "text": "Find the red ball.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.08
+  },
+  {
+    "file": "toys-yes-ball.wav",
+    "text": "Yes! A red ball!",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.39
+  },
+  {
+    "file": "toys-red-ball.wav",
+    "text": "A red ball.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 0.72
+  },
+  {
+    "file": "toys-red-ball-slow.wav",
+    "text": "A red ball.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 115,
+    "seconds": 0.78
+  },
+  {
+    "file": "toys-boxes.wav",
+    "text": "Put the toys in the boxes.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.47
+  },
+  {
+    "file": "toys-parent.wav",
+    "text": "A red ball. A blue car. Put the toys in the boxes.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 3.32
+  },
+  {
+    "file": "animals-find-rabbit.wav",
+    "text": "Find the rabbit.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 0.95
+  },
+  {
+    "file": "animals-yes-rabbit.wav",
+    "text": "Yes! A rabbit!",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.26
+  },
+  {
+    "file": "animals-hungry.wav",
+    "text": "Are you hungry?",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 0.83
+  },
+  {
+    "file": "animals-hungry-slow.wav",
+    "text": "Are you hungry?",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 115,
+    "seconds": 0.91
+  },
+  {
+    "file": "animals-yes-am.wav",
+    "text": "Yes, I am!",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.21
+  },
+  {
+    "file": "animals-carrot.wav",
+    "text": "Give the rabbit a carrot.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.22
+  },
+  {
+    "file": "animals-banana.wav",
+    "text": "Give the monkey a banana.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.27
+  },
+  {
+    "file": "animals-parent.wav",
+    "text": "Are you hungry? Yes, I am! Here you are!",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 3.17
+  },
+  {
+    "file": "great-job.wav",
+    "text": "Great job!",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 0.66
+  },
+  {
+    "file": "market-1.wav",
+    "text": "Find the apple.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 0.97
+  },
+  {
+    "file": "market-2.wav",
+    "text": "Two apples, please.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.46
+  },
+  {
+    "file": "market-2-slow.wav",
+    "text": "Two apples, please.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 115,
+    "seconds": 1.61
+  },
+  {
+    "file": "market-3.wav",
+    "text": "Put two apples in the basket.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.58
+  },
+  {
+    "file": "market-4.wav",
+    "text": "One, two. Two apples, please. Thank you!",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 3.56
+  },
+  {
+    "file": "bus-1.wav",
+    "text": "Find the bus.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 0.93
+  },
+  {
+    "file": "bus-2.wav",
+    "text": "On the bus.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 0.74
+  },
+  {
+    "file": "bus-2-slow.wav",
+    "text": "On the bus.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 115,
+    "seconds": 0.81
+  },
+  {
+    "file": "bus-3.wav",
+    "text": "Red light. Stop.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.33
+  },
+  {
+    "file": "bus-4.wav",
+    "text": "Green light. Go.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.27
+  },
+  {
+    "file": "bus-5.wav",
+    "text": "On the bus. Red light. Stop. Green light. Go.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 3.76
+  },
+  {
+    "file": "garden-1.wav",
+    "text": "Find the seed.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 0.92
+  },
+  {
+    "file": "garden-2.wav",
+    "text": "Grow, little seed!",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.39
+  },
+  {
+    "file": "garden-2-slow.wav",
+    "text": "Grow, little seed!",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 115,
+    "seconds": 1.54
+  },
+  {
+    "file": "garden-3.wav",
+    "text": "Plant the seed.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 0.86
+  },
+  {
+    "file": "garden-4.wav",
+    "text": "Water the seed.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 0.88
+  },
+  {
+    "file": "garden-5.wav",
+    "text": "Plant the seed. Water the seed. Grow, little seed!",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 3.57
+  },
+  {
+    "file": "weather-1.wav",
+    "text": "Find the umbrella.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.07
+  },
+  {
+    "file": "weather-2.wav",
+    "text": "It is raining.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 0.72
+  },
+  {
+    "file": "weather-2-slow.wav",
+    "text": "It is raining.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 115,
+    "seconds": 0.79
+  },
+  {
+    "file": "weather-3.wav",
+    "text": "Take your umbrella.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.02
+  },
+  {
+    "file": "weather-4.wav",
+    "text": "Put on your boots.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.0
+  },
+  {
+    "file": "weather-5.wav",
+    "text": "It is raining. Take your umbrella. Put on your boots.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 3.14
+  },
+  {
+    "file": "birthday-1.wav",
+    "text": "Find the cake.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 0.94
+  },
+  {
+    "file": "birthday-2.wav",
+    "text": "Happy birthday!",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 0.99
+  },
+  {
+    "file": "birthday-2-slow.wav",
+    "text": "Happy birthday!",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 115,
+    "seconds": 1.09
+  },
+  {
+    "file": "birthday-3.wav",
+    "text": "Put three candles on the cake.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 1.65
+  },
+  {
+    "file": "birthday-4.wav",
+    "text": "One, two, three. Happy birthday!",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 2.86
+  },
+  {
+    "file": "number-1.wav",
+    "text": "One.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 0.42
+  },
+  {
+    "file": "number-2.wav",
+    "text": "Two.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 0.36
+  },
+  {
+    "file": "number-3.wav",
+    "text": "Three.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 0.43
+  },
+  {
+    "file": "number-4.wav",
+    "text": "Four.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 0.41
+  },
+  {
+    "file": "number-5.wav",
+    "text": "Five.",
+    "voice": "Samantha",
+    "locale": "en-US",
+    "wordsPerMinute": 155,
+    "seconds": 0.47
+  }
+]

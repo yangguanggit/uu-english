@@ -1,0 +1,18 @@
+English phoneme recordings
+Author and speaker: Philip Neal Whitman
+Intercultural English Language Programs, Spoken English Program
+The Ohio State University, 2023. Source last update: October 2025.
+Source: https://ielp.ehe.osu.edu/files/2025/09/IPA_English.pdf
+Documentation: https://ielp.ehe.osu.edu/files/2025/09/IPA_Documentation.pdf
+Project: https://ielp.ehe.osu.edu/sep/resources/interactive-ipa-charts/
+License stated in the source: Creative Commons Attribution-NonCommercial.
+The source does not specify a CC license version. Non-commercial use only.
+
+24 selected source recordings are losslessly wrapped in WAV.
+16-bit signed PCM byte order is converted from PDF big-endian to WAV little-endian.
+Numeric samples, sample rate, duration, pitch and gain are unchanged.
+Consonants use the author's Cə, əCə demonstration.
+/p t k/ use the source's aspirated allophones [pʰ tʰ kʰ], matching pen, ten, cat.
+/g/ in the source is displayed as IPA /ɡ/ in the app.
+See foundation-voice.json for symbol, source field/object, hashes and provenance.
+The app is independent and is not endorsed by the source institution.

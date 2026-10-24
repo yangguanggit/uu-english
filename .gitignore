@@ -1,0 +1,40 @@
+# Generated deployment and staging directories
+/dist/
+/.dist-build-*/
+
+# Dependencies and tool caches
+node_modules/
+.npm/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Runtime logs and process files
+*.log
+*.log.*
+*.pid
+*.pid.lock
+/.diagnostics/
+/logs/
+
+# Local test output (normal output lives outside this project)
+/coverage/
+/playwright-report/
+/test-results/
+
+# Local environment files; keep distributable templates
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Operating-system and editor temporary files
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~

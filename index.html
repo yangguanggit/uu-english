@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta name="app-revision" content="e9f5fc030f266ff4a7ff8aa8af25950dc953c38a029a064ec8b9f9cb45adedf8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#fcf9f3">
+  <meta name="description" content="英语基础学习、50 类生活场景与主题的 250 个交流小游戏，以及随机场景模拟。">
+  <title>UU说英语 · 生活冒险小镇</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E🐻%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles/base.css?v=1.0.0">
+  <link rel="stylesheet" href="styles/features.css?v=1.0.0">
+  <link rel="stylesheet" href="styles/growth.css?v=1.0.0">
+  <link rel="stylesheet" href="styles/tabs.css?v=1.0.0">
+  <link rel="stylesheet" href="styles/layout.css?v=1.0.0">
+</head>
+<body>
+  <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <symbol id="icon-star" viewBox="0 0 24 24"><path d="m12 2 3 6.2 6.8 1-4.9 4.8 1.1 6.8-6-3.2-6 3.2 1.1-6.8L2.2 9.2l6.8-1Z" fill="currentColor" stroke="currentColor" stroke-linejoin="round"/></symbol>
+      <symbol id="icon-sound" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4V5ZM15 8c3 2 3 6 0 8m3-11c5 4 5 10 0 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="icon-mic" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="13" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M5 11a7 7 0 0 0 14 0m-7 7v4m-4 0h8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+      <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="food-milk" viewBox="0 0 100 100"><ellipse cx="51" cy="88" rx="29" ry="5" fill="#dbe6ef"/><path d="m30 31 11-17h27l11 17v49a6 6 0 0 1-6 6H36a6 6 0 0 1-6-6Z" fill="#fffefa" stroke="#8ba8bf" stroke-width="2.5" stroke-linejoin="round"/><path d="m41 14 10 17v55M30 31h49M51 31l17-17" fill="none" stroke="#8ba8bf" stroke-width="2.5"/><path d="M32 42h17v30H32m21-30h24v30H53" fill="#bbdced"/><path d="M58 52c0-6 12-6 12 0s-6 12-6 12-6-6-6-12" fill="#fff"/><path d="M44 8h23v7H44Z" fill="#8ba8bf"/><path d="m35 47 9 0m-9 6h9m-9 6h9" stroke="#fff" stroke-width="2"/></symbol>
+      <symbol id="food-bread" viewBox="0 0 100 100"><ellipse cx="50" cy="88" rx="31" ry="5" fill="#ebdecb"/><path d="M25 46C8 31 22 14 49 14s43 17 26 32v31a8 8 0 0 1-8 8H33a8 8 0 0 1-8-8Z" fill="#d89b58" stroke="#b87e44" stroke-width="2.5"/><path d="M32 45c-16-11-4-23 18-23s33 13 18 23v31H32Z" fill="#ffe4aa"/><path d="m41 32-2 9m15-10-2 10m11-6-2 7" stroke="#eecb89" stroke-width="3" stroke-linecap="round"/><circle cx="41" cy="58" r="2" fill="#d8b16e"/><circle cx="59" cy="65" r="2" fill="#d8b16e"/></symbol>
+      <symbol id="food-apple" viewBox="0 0 100 100"><ellipse cx="50" cy="87" rx="30" ry="5" fill="#eadbcf"/><path d="M50 31C17 13 9 47 25 72c7 13 17 12 25 9 9 4 19 3 26-10 16-27 4-55-26-40" fill="#ef7969" stroke="#d56154" stroke-width="2.5"/><path d="M50 31c-2-11 1-17 7-22" stroke="#8b6746" stroke-width="4" stroke-linecap="round"/><path d="M52 20C57 5 74 7 75 9c-3 13-15 16-23 11" fill="#90b681"/><path d="M32 39c-6 5-7 13-5 18" fill="none" stroke="#ffb2a0" stroke-width="5" stroke-linecap="round"/></symbol>
+      <symbol id="food-egg" viewBox="0 0 100 100"><ellipse cx="50" cy="86" rx="36" ry="6" fill="#e7dfc8"/><path d="M83 60c9 22-11 26-32 22-18 7-42 2-37-18-7-17 8-28 18-28C41 12 65 19 69 37c18 0 24 12 14 23" fill="#fffefa" stroke="#ded8c0" stroke-width="2.5"/><circle cx="50" cy="55" r="20" fill="#f4bf51"/><path d="M39 49c1-4 4-7 8-8" fill="none" stroke="#ffe7a0" stroke-width="4" stroke-linecap="round"/></symbol>
+      <symbol id="bear-head" viewBox="0 0 100 100"><circle cx="23" cy="25" r="17" fill="#bd8259"/><circle cx="77" cy="25" r="17" fill="#bd8259"/><circle cx="23" cy="25" r="9" fill="#e0ae83"/><circle cx="77" cy="25" r="9" fill="#e0ae83"/><rect x="12" y="19" width="76" height="70" rx="34" fill="#d5a075"/><ellipse cx="50" cy="66" rx="23" ry="17" fill="#f6dbb6"/><circle cx="33" cy="49" r="3.5" fill="#4c3b32"/><circle cx="67" cy="49" r="3.5" fill="#4c3b32"/><ellipse cx="50" cy="60" rx="6" ry="4" fill="#4c3b32"/><path d="M50 64v5m-8-1q8 10 16 0" fill="none" stroke="#4c3b32" stroke-width="2.5" stroke-linecap="round"/><ellipse cx="25" cy="61" rx="7" ry="4" fill="#e9a089"/><ellipse cx="75" cy="61" rx="7" ry="4" fill="#e9a089"/></symbol>
+    </defs>
+  </svg>
+  <header class="site-header">
+    <a href="#" class="brand" aria-label="UU说英语首页"><span class="brand-mark"><svg><use href="#bear-head"/></svg></span><span>UU说英语<small>UU ENGLISH</small></span></a>
+    <div class="header-actions"><button id="sound-toggle" class="icon-button" aria-label="关闭声音" aria-pressed="true"><svg><use href="#icon-sound"/></svg></button><span class="header-divider"></span><button id="parent-button" class="parent-button"><span aria-hidden="true">⌘</span> 家长</button><button id="return-child" class="return-child" hidden>← 返回孩子页面</button><span class="avatar" aria-hidden="true">🌱</span></div>
+  </header>
+  <main class="page">
+    <section class="greeting"><div><p class="eyebrow">A LITTLE ENGLISH, A LITTLE ADVENTURE <span class="build-label">1.0.0</span></p><h1>早上好，小小探险家 <span class="sun" aria-hidden="true">☀</span></h1><p class="greeting-copy">今天，和米米一起做一顿美味早餐吧！</p></div><div class="daily-badge"><span class="badge-star"><svg><use href="#icon-star"/></svg></span><div><strong>每一次开口，都值得鼓励</strong><span>每天一小步，英语自然说</span></div></div></section>
+    <nav id="learning-modes" class="learning-modes" aria-label="学习方式">
+      <button data-section="foundation"><span>🔤</span><strong>基础学习</strong><small>字母 · 音标 · 常用单词</small></button>
+      <button data-section="scenes"><span>🏡</span><strong>场景游戏</strong><small>50 类场景 · 250 个小任务</small></button>
+      <button data-section="simulation"><span>🧳</span><strong>场景模拟</strong><small>随机去五站 · 试着聊一聊</small></button>
+    </nav>
+    <nav class="discovery-nav" aria-label="探索工坊"><button data-feature="today">☀️ 今日小冒险</button><button data-feature="review">🎒 复习小口袋</button><button data-feature="phonics">🧩 自然拼读</button><button data-feature="books">📖 互动绘本</button><button data-feature="home">🧸 米米的小家</button></nav>
+    <div id="daily-trail" class="daily-trail"></div>
+    <section id="features-panel" aria-label="探索工坊" hidden></section>
+    <p id="playback-status" class="sr-playback" role="status" hidden></p>
+    <section id="foundation-panel" aria-label="基础学习"></section>
+    <section id="catalog-panel" aria-label="场景游戏分类" hidden></section>
+    <section id="simulation-panel" aria-label="随机场景模拟" hidden></section>
+    <section id="lesson-workspace" hidden><button id="back-catalog" class="text-button back-catalog">← 返回关卡选择</button>
+    <section id="scene-picker" class="scene-picker" aria-label="选择游戏场景"><div class="scene-picker-heading"><strong id="lesson-category-heading">家里的五个小任务</strong><span><span class="picker-count">本类 5 关 · 按顺序一起出发</span><span class="picker-hint">本类 5 关 · 左右滑动选择</span></span></div><div class="route-summary"><span id="route-position">第 01 / 10 站</span><span id="route-completed">本次已完成 0 / 10 站</span></div><div id="route-track" class="route-track" role="progressbar" aria-label="当前分类完成进度" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0"><span id="route-track-fill"></span></div><nav id="scene-switcher" class="scene-switcher" aria-label="游戏场景"></nav></section>
+    <div class="main-grid">
+      <section class="lesson-card" aria-labelledby="lesson-title">
+        <div class="lesson-top"><div class="lesson-meta"><span class="chapter-tag">生活冒险</span><span>第 01 站 · 早餐时间</span></div><span class="time-label">◷ 约 8 分钟</span></div>
+        <div class="lesson-heading"><h2 id="lesson-title">小熊的早餐店 <span aria-hidden="true">🥐</span></h2><p>听一听，说一说，把美味送到米米面前。</p></div>
+        <div class="stepper" aria-label="任务进度"><div class="step active" data-step="0"><span>1</span>听音找一找</div><i></i><div class="step" data-step="1"><span>2</span>开口说一说</div><i></i><div class="step" data-step="2"><span>3</span>早餐我来选</div></div>
+        <div class="scene" id="scene">
+          <span class="scene-label"><span></span> MIMI'S LITTLE KITCHEN</span>
+          <svg class="kitchen" viewBox="0 0 760 340" role="img" aria-labelledby="scene-title"><title id="scene-title">小熊米米在阳光明媚的厨房里，等你一起吃早餐</title>
+            <defs><pattern id="tiles" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0v48" fill="none" stroke="#d5dfce" stroke-width="1"/></pattern><pattern id="cloth" width="32" height="32" patternUnits="userSpaceOnUse"><rect width="32" height="32" fill="#f8ead2"/><path d="M0 8h32M8 0v32" stroke="#e5b991" stroke-width="10" opacity=".35"/></pattern></defs>
+            <path fill="#e9eddf" d="M0 0h760v340H0z"/><path fill="url(#tiles)" d="M0 90h760v190H0z"/><path fill="#d9dfca" d="M0 274h760v66H0z"/>
+            <rect x="57" y="42" width="168" height="162" rx="70" fill="#c6cda9"/><path d="M66 120a75 75 0 0 1 150 0v75H66Z" fill="#fff6d7"/><path d="M76 120a65 65 0 0 1 130 0v65H76Z" fill="#d0e8e5"/><circle cx="173" cy="97" r="21" fill="#fff3b3"/><path d="m76 155 37-28 43 28 22-15 28 17v28H76Z" fill="#acc6a1"/><path d="M141 55v140m-75-67h150" stroke="#fff6d7" stroke-width="8"/><rect x="56" y="192" width="171" height="11" rx="5" fill="#c6b48d"/>
+            <path d="M37 38q48 24 89 0v34q-43 22-89 0Z" fill="#f0cc98"/><path d="M157 38q45 24 88 0v34q-44 22-88 0Z" fill="#f0cc98"/><path d="M40 37h203" stroke="#b69e7d" stroke-width="5" stroke-linecap="round"/>
+            <rect x="564" y="70" width="146" height="9" rx="4" fill="#b8a386"/><rect x="579" y="33" width="26" height="37" rx="6" fill="#f8f0df"/><path d="M583 44h18m-18 6h18" stroke="#daae81" stroke-width="2"/><rect x="613" y="42" width="23" height="28" rx="5" fill="#d7a37d"/><path d="M647 68V43m0 11q-30-23-12-27 15 0 12 27m1-5q0-29 16-25 12 10-16 25" fill="#8da77d" stroke="#8da77d" stroke-width="3"/><path d="m635 55 4 15h20l5-15Z" fill="#f4dfbd"/>
+            <circle cx="671" cy="141" r="27" fill="#fff9e8" stroke="#c8b993" stroke-width="5"/><path d="M671 124v17l11 8" fill="none" stroke="#8d917b" stroke-width="3" stroke-linecap="round"/><circle cx="671" cy="141" r="3" fill="#8d917b"/>
+            <rect x="31" y="244" width="179" height="60" rx="5" fill="#b2bea0"/><path d="M30 241h183" stroke="#d0b38d" stroke-width="10" stroke-linecap="round"/><path d="M119 253v51" stroke="#94a184" stroke-width="2"/><circle cx="107" cy="266" r="3" fill="#eff1df"/><circle cx="132" cy="266" r="3" fill="#eff1df"/>
+            <path d="M86 239v-29m0 18q-30-13-28-29 23-2 28 29m0-7q7-33 25-29 5 20-25 29" fill="#7f9c73" stroke="#7f9c73" stroke-width="2"/><path d="m66 220 7 22h27l6-22Z" fill="#f5ddbc"/>
+            <ellipse cx="382" cy="297" rx="89" ry="14" fill="#a9ad8c" opacity=".35"/><rect x="318" y="217" width="127" height="96" rx="40" fill="#b98a61"/><path d="M333 234q48 21 96 0l13 76H319Z" fill="#f3d38e"/><path d="M345 239v69m72-69v69" stroke="#edb65e" stroke-width="12"/><path d="M364 267h36v23h-36Z" fill="#fff0c2"/>
+            <g id="mimi-bear"><circle cx="316" cy="119" r="29" fill="#b8855d"/><circle cx="443" cy="119" r="29" fill="#b8855d"/><circle cx="316" cy="119" r="16" fill="#dfb28d"/><circle cx="443" cy="119" r="16" fill="#dfb28d"/><rect x="308" y="110" width="144" height="131" rx="63" fill="#d2a078"/><ellipse cx="380" cy="195" rx="40" ry="29" fill="#f3d9b3"/><ellipse cx="347" cy="171" rx="5" ry="6" fill="#4d3c30"/><ellipse cx="411" cy="171" rx="5" ry="6" fill="#4d3c30"/><ellipse cx="379" cy="188" rx="9" ry="6" fill="#4d3c30"/><path d="M379 194v9m-13-3q13 17 26 0" fill="none" stroke="#4d3c30" stroke-width="3" stroke-linecap="round"/><ellipse cx="332" cy="190" rx="12" ry="6" fill="#e8a38b"/><ellipse cx="426" cy="190" rx="12" ry="6" fill="#e8a38b"/><path d="m354 115 8-24 19 13 16-13 10 24Z" fill="#f5d891"/><path d="M316 242q-46-27-49-8c-4 19 22 36 49 35m125-26q32-40 42-21c9 15-4 34-36 48" fill="#c69369"/></g>
+            <ellipse cx="381" cy="339" rx="255" ry="49" fill="#a98c68"/><ellipse cx="381" cy="327" rx="255" ry="49" fill="url(#cloth)"/><ellipse cx="381" cy="320" rx="70" ry="17" fill="#fffdf3" stroke="#dcd7be" stroke-width="3"/><ellipse cx="381" cy="320" rx="48" ry="10" fill="none" stroke="#e7e1ca" stroke-width="2"/>
+            <path d="M289 302v33m-7-33v10q7 8 14 0v-10m-7 0v12m177-12v33m0-33q-16 12 0 18" fill="none" stroke="#aaa58d" stroke-width="3" stroke-linecap="round"/>
+            <g id="served-milk" class="served-item" visibility="hidden"><use href="#food-milk" x="483" y="254" width="74" height="74"/></g><g id="served-food" class="served-item" visibility="hidden"><use id="served-food-use" href="#food-apple" x="346" y="269" width="68" height="68"/></g>
+          </svg>
+          <div id="scene-hotspots" class="scene-hotspots" hidden></div>
+          <div class="speech-bubble" id="speech-bubble"><span class="bubble-name">米米 MIMI</span><strong id="bubble-english">Good morning!</strong><span id="bubble-chinese">肚子咕咕叫，早餐吃什么呢？</span><button id="bubble-speak" aria-label="听米米说话"><svg><use href="#icon-sound"/></svg></button></div>
+          <div class="scene-caption"><span>✦</span> 用一句英语，让小小世界动起来</div>
+        </div>
+        <div class="interaction-area" id="interaction-area" aria-busy="false">
+          <div class="prompt-line"><button class="listen-button" id="listen-button" aria-label="播放英语提示"><svg><use href="#icon-sound"/></svg></button><div><h3 id="prompt-title">听一听，米米想要什么？</h3><p id="prompt-subtitle">点一下小喇叭，再选出对应的食物</p></div><span id="prompt-counter">01 / 03</span></div>
+          <p id="audio-status" class="audio-status" role="status" aria-live="polite" hidden></p>
+          <div class="food-grid" id="food-grid"></div>
+          <div id="dialogue-area" class="dialogue-area" hidden></div>
+          <div id="sorter-area" class="sorter-area" hidden></div>
+          <div id="counter-area" class="counter-area" hidden></div>
+          <div class="speaking-area" id="speaking-area" hidden><div class="phrase-card"><span>UU · 试着对米米说</span><strong>Milk, please.</strong><p>请给我牛奶。</p><button id="slow-speak" class="text-button">慢慢听一遍 <svg><use href="#icon-sound"/></svg></button></div><button id="record-button" class="record-button"><svg><use href="#icon-mic"/></svg><span>点一下，开口说</span></button><p id="mic-status" class="mic-status" role="status" aria-live="polite" hidden></p><audio id="recording-preview" class="recording-preview" controls hidden aria-label="回听本次录音"></audio><button id="use-recording-button" class="continue-button" hidden>完成这次录音练习 →</button><p id="recognition-help" class="recognition-help"></p><button id="practice-button" class="text-button practice-button">我跟着读过了，继续练习 →</button></div>
+          <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+          <button id="continue-button" class="continue-button" hidden>继续小冒险 <svg><use href="#icon-arrow"/></svg></button>
+        </div>
+        <div class="lesson-footer"><span><span class="tiny-heart">♡</span> 不着急，米米会等你慢慢说</span><button id="help-button">需要一点帮助？</button></div>
+      </section>
+      <aside class="sidebar">
+        <section class="journey-card"><div class="section-title"><h2>今天的小冒险</h2><span class="date-tag">DAY 01</span></div><div class="progress-summary"><div class="progress-ring" id="progress-ring"><strong id="progress-count">0<span>/3</span></strong></div><div><strong id="progress-heading">准备好出发了吗？</strong><p id="progress-description">收集三颗早餐小星星</p></div></div><ol class="mission-list"><li class="current" data-mission="0"><span class="mission-icon">🎧</span><div><strong>小耳朵，听一听</strong><p>找到米米想要的食物</p></div><span class="mission-state">进行中</span></li><li data-mission="1"><span class="mission-icon">💬</span><div><strong>小嘴巴，说一说</strong><p>用英语点一杯牛奶</p></div><span class="mission-state">待探索</span></li><li data-mission="2"><span class="mission-icon">🍽️</span><div><strong>我的早餐，我做主</strong><p>给米米选一份美味</p></div><span class="mission-state">待探索</span></li></ol><div class="encouragement"><svg><use href="#icon-star"/></svg><p>勇敢尝试，就是今天的超能力！</p></div></section>
+        <section class="parent-tip"><span class="tip-icon">🌱</span><div><span class="tip-label">给爸爸妈妈的小灵感</span><h3>把英语，带到餐桌上</h3><p>早餐时问一句 “Milk or water?”<br>给孩子一点时间，等一个小小回应。</p><button id="parent-tip-button">看看怎么陪孩子说 <span>↗</span></button></div></section>
+        <section class="next-adventure"><div class="section-title"><h2>下一站，继续冒险</h2><span id="next-station-label">按路线前进</span></div><div id="next-scenes" class="next-scenes"></div></section>
+      </aside>
+    </div>
+    </section>
+    <footer class="page-footer"><span>为好奇心留一点空间，为每一次开口鼓掌。</span><span>✦ 轻轻学，大胆说 · 体验版 1.0.0 ✦</span></footer>
+  </main>
+  <nav class="mobile-nav" aria-label="儿童底部导航"><button data-child-nav="today"><span>☀️</span>今天</button><button data-child-nav="explore"><span>🧭</span>探索</button><button data-child-nav="books"><span>📖</span>书架</button></nav>
+  <dialog id="info-dialog" class="info-dialog" aria-labelledby="dialog-title"><button id="close-dialog" class="close-dialog" aria-label="关闭弹窗">×</button><div id="dialog-content"></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="src/shared/ui/artwork.js?v=1.0.0"></script>
+  <script src="data/scenes/content-extra.js?v=1.0.0"></script>
+  <script src="data/scenes/scenes.js?v=1.0.0"></script>
+  <script src="data/scenes/scenes-extra.js?v=1.0.0"></script>
+  <script src="src/child/modules/scenes/catalog.js?v=1.0.0"></script>
+  <script src="data/foundation/foundation-data.js?v=1.0.0"></script>
+  <script src="src/shared/storage/profiles.js?v=1.0.0"></script>
+  <script src="data/themes/learning-themes.js?v=1.0.0"></script>
+  <script src="src/shared/ui/visuals.js?v=1.0.0"></script>
+  <script src="src/shared/learning/curriculum.js?v=1.0.0"></script>
+  <script src="src/shared/storage/learning-state.js?v=1.0.0"></script>
+  <script src="src/shared/audio/microphone.js?v=1.0.0"></script>
+  <script src="src/shared/ui/selects.js?v=1.0.0"></script>
+  <script src="src/shared/ui/category-rail.js?v=1.0.0"></script>
+  <script src="src/shared/ui/page-layout.js?v=1.0.0"></script>
+  <script src="src/shared/audio/voice-packs.js?v=1.0.0"></script>
+  <script src="src/shared/audio/voices.js?v=1.0.0"></script>
+  <script src="src/shared/audio/playback.js?v=1.0.0"></script>
+  <script src="src/shared/audio/player.js?v=1.0.0"></script>
+  <script src="src/child/modules/scenes/app.js?v=1.0.0"></script>
+  <script src="src/child/modules/foundation/foundation.js?v=1.0.0"></script>
+  <script src="src/child/hub.js?v=1.0.0"></script>
+  <script src="data/reading/books-data.js?v=1.0.0"></script>
+  <script src="src/shared/storage/offline.js?v=1.0.0"></script>
+  <script src="src/parent/modules/children/children.js?v=1.0.0"></script>
+  <script src="src/parent/modules/backup/backup.js?v=1.0.0"></script>
+  <script src="src/parent/modules/plan/plan.js?v=1.0.0"></script>
+  <script src="src/parent/modules/offline/offline.js?v=1.0.0"></script>
+  <script src="src/parent/family.js?v=1.0.0"></script>
+  <script src="src/shared/navigation.js?v=1.0.0"></script>
+  <script src="data/foundation/phonics-data.js?v=1.0.0"></script>
+  <script src="data/foundation/phonics-course.js?v=1.0.0"></script>
+  <script src="src/child/modules/phonics/phonics.js?v=1.0.0"></script>
+  <script src="src/shared/learning/learning-tools.js?v=1.0.0"></script>
+  <script src="data/scenes/reply-variants.js?v=1.0.0"></script>
+  <script src="src/shared/learning/growth.js?v=1.0.0"></script>
+  <script src="data/reading/reading-activities.js?v=1.0.0"></script>
+  <script src="data/scenes/reply-audio.js?v=1.0.0"></script>
+  <script src="data/scenes/branch-dialogues.js?v=1.0.0"></script>
+  <script src="src/shared/learning/progression.js?v=1.0.0"></script>
+  <script src="data/scenes/sentence-patterns.js?v=1.0.0"></script>
+  <script src="src/shared/learning/roleplay.js?v=1.0.0"></script>
+  <script src="src/shared/learning/sentences.js?v=1.0.0"></script>
+  <script src="src/shared/content/review.js?v=1.0.0"></script>
+  <script src="src/shared/storage/practice-drafts.js?v=1.0.0"></script>
+  <script src="src/child/modules/practice/page.js?v=1.0.0"></script>
+  <script src="src/child/modules/sentences/sentences.js?v=1.0.0"></script>
+  <script src="src/child/modules/roleplay/roleplay.js?v=1.0.0"></script>
+  <script src="src/child/modules/activities/page.js?v=1.0.0"></script>
+  <script src="src/child/modules/assessment/assessment.js?v=1.0.0"></script>
+  <script src="src/child/modules/listening-games/listening-games.js?v=1.0.0"></script>
+  <script src="src/child/modules/reading/activities.js?v=1.0.0"></script>
+  <script src="src/child/growth.js?v=1.0.0"></script>
+  <script src="src/parent/modules/learning-settings/learning-settings.js?v=1.0.0"></script>
+  <script src="src/parent/modules/content-review/content-review.js?v=1.0.0"></script>
+  <script src="src/parent/space.js?v=1.0.0"></script>
+  <script src="src/child/modules/scenes/challenge.js?v=1.0.0"></script>
+  <script src="src/child/modules/library/library.js?v=1.0.0"></script>
+  <script src="src/child/modules/today/today.js?v=1.0.0"></script>
+  <script src="src/child/modules/explore/explore.js?v=1.0.0"></script>
+  <script src="src/child/modules/themes/themes.js?v=1.0.0"></script>
+  <script src="src/child/modules/review/review.js?v=1.0.0"></script>
+  <script src="src/child/modules/rewards/rewards.js?v=1.0.0"></script>
+  <script src="src/child/modules/reading/reading.js?v=1.0.0"></script>
+  <script src="src/child/app.js?v=1.0.0"></script>
+  <script src="src/shared/learning/session.js?v=1.0.0"></script>
+  <script src="src/shared/ui/updates.js?v=1.0.0"></script>
+</body>
+</html>

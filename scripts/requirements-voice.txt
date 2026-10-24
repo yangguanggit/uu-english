@@ -1,0 +1,2 @@
+# Build-time only; do not ship this environment or the library with H5.
+edge-tts==7.3.1

@@ -1,0 +1,27 @@
+/* Page category tabs share one visual system. App navigation stays fixed at the bottom. */
+body :is(.category-rail,.feature-tabs,.course-stages,.discovery-nav){
+  display:flex;flex-wrap:nowrap;align-items:center;gap:10px;overflow-x:auto;
+  max-width:100%;min-width:0;margin:0 0 20px;padding:3px 2px;
+  scrollbar-width:none;overscroll-behavior-x:contain;touch-action:pan-y;
+}
+body :is(.category-rail,.feature-tabs,.course-stages,.discovery-nav)::-webkit-scrollbar{display:none}
+body :is(.category-rail,.feature-tabs,.course-stages,.discovery-nav)>button{
+  flex:0 0 auto;white-space:nowrap;min-height:48px;box-sizing:border-box;
+  border:1px solid #dedbcd;border-radius:19px;padding:13px 18px;
+  background:#fffdf7;color:#737c65;font:inherit;font-size:16px;font-weight:600;
+  line-height:1.4;text-align:center;cursor:pointer;box-shadow:none;
+}
+body :is(.category-rail,.feature-tabs,.course-stages,.discovery-nav)>button:is([aria-pressed=true],[aria-selected=true],[aria-current=page],.active){
+  background:#e8efdb!important;border-color:#91a471!important;color:#647b4e;
+}
+body :is(.category-rail,.feature-tabs,.course-stages,.discovery-nav)>button:focus-visible{
+  outline:3px solid #a8ba90;outline-offset:2px;
+}
+body :is(.category-rail,.feature-tabs,.course-stages,.discovery-nav)[data-tab-level=secondary]{gap:8px;margin-bottom:18px}
+body :is(.category-rail,.feature-tabs,.course-stages,.discovery-nav)[data-tab-level=secondary]>button{
+  min-height:44px;border-radius:16px;padding:10px 14px;font-size:13px;font-weight:500;
+}
+@media(max-width:560px){
+  body :is(.category-rail,.feature-tabs,.course-stages,.discovery-nav)>button{font-size:14px;padding:12px 15px}
+  body :is(.category-rail,.feature-tabs,.course-stages,.discovery-nav)[data-tab-level=secondary]>button{font-size:12px;padding:10px 12px}
+}

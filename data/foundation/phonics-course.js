@@ -1,0 +1,145 @@
+/* Explicit example words grouped by teaching focus. */
+window.BEAR_PHONICS_COURSE=[
+  {
+    "id": "short",
+    "title": "1 · 短元音与简单词",
+    "tip": "先听 a /æ/、e /ɛ/、i /ɪ/、o /ɑ/、u /ʌ/，再把三个声音连起来。",
+    "words": [
+      "cat",
+      "hat",
+      "cap",
+      "bag",
+      "map",
+      "sad",
+      "big",
+      "sit",
+      "pig",
+      "hot",
+      "sun",
+      "run",
+      "cup",
+      "bus",
+      "pen",
+      "ten",
+      "hen",
+      "bed",
+      "red",
+      "box",
+      "fox",
+      "bat",
+      "rat",
+      "net",
+      "web",
+      "van",
+      "fan",
+      "pan",
+      "pot",
+      "lid",
+      "bin",
+      "mat",
+      "rug",
+      "zip"
+    ]
+  },
+  {
+    "id": "blends",
+    "title": "2 · 相邻辅音",
+    "tip": "两个辅音各自保留声音，慢慢连起来；不要在中间加额外元音。",
+    "words": [
+      "milk",
+      "hand",
+      "lamp",
+      "desk",
+      "stop",
+      "clap",
+      "swim",
+      "crab",
+      "truck",
+      "frog",
+      "plum",
+      "flag",
+      "vest"
+    ]
+  },
+  {
+    "id": "digraphs",
+    "title": "3 · 常见辅音组合",
+    "tip": "sh、ch、th、ng、ck 等组合需要一起看，结合整词示范听。",
+    "words": [
+      "fish",
+      "shop",
+      "sheep",
+      "chick",
+      "tooth",
+      "mouth",
+      "sing",
+      "duck",
+      "bench",
+      "sock",
+      "bell",
+      "ring",
+      "beach"
+    ]
+  },
+  {
+    "id": "silent-e",
+    "title": "4 · 结尾 e 与长元音",
+    "tip": "这些词的结尾 e 不单独发音，留意前面元音的变化。",
+    "words": [
+      "cake",
+      "bike",
+      "nose",
+      "home",
+      "gate",
+      "five",
+      "kite",
+      "plane",
+      "take",
+      "snake",
+      "lime",
+      "lake",
+      "rope"
+    ]
+  },
+  {
+    "id": "vowel-teams",
+    "title": "5 · 常见元音组合",
+    "tip": "在这些例词中认识 ai、oa、ee、ea、oo；同一个组合在别的词里可能发不同的音。",
+    "words": [
+      "rain",
+      "train",
+      "boat",
+      "goat",
+      "green",
+      "seed",
+      "leaf",
+      "tea",
+      "moon",
+      "snail",
+      "bean",
+      "beet",
+      "boot",
+      "pool"
+    ]
+  },
+  {
+    "id": "special",
+    "title": "6 · 特别留意的高频词",
+    "tip": "这些词不适合直接套用前面的简单规则。看清特殊组合，多听整词，在句子里记住。",
+    "words": [
+      "one",
+      "two",
+      "eye",
+      "shoes",
+      "friend",
+      "bread",
+      "water",
+      "mother",
+      "father",
+      "dog",
+      "worm",
+      "swan",
+      "log"
+    ]
+  }
+];
