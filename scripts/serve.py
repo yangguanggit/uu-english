@@ -15,7 +15,7 @@ import time
 
 PROJECT = Path(__file__).resolve().parents[1]
 DIAGNOSTICS = PROJECT.parent / 'english-learning-diagnostics' / 'runtime'
-BUILD = '1.0.0'
+BUILD = '1.0.1'
 INTERNAL_NETWORKS = tuple(ipaddress.ip_network(value) for value in (
     '127.0.0.0/8', '10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16',
 ))

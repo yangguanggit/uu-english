@@ -1,6 +1,6 @@
 /* Explicit theme downloads, all-or-nothing completion and verified browser cache. */
 (() => {
-  const BUILD='1.0.0',CACHE=`bear-themes-${BUILD}`,SHELL=`bear-shell-${BUILD}`,origin=location.origin;
+  const BUILD='1.0.1',CACHE=`bear-themes-${BUILD}`,SHELL=`bear-shell-${BUILD}`,origin=location.origin;
   const MEDIA='bear-media-sha256-v1';
   let catalogPromise,registration;
   const ready=(async()=>{

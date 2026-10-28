@@ -8,7 +8,7 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
   const context=await browser.newContext({viewport:{width:1440,height:1000},reducedMotion:'reduce',permissions:['microphone']});const page=await context.newPage(),errors=[];
   page.on('pageerror',e=>errors.push(e.message));
   await page.addInitScript(()=>{window.SpeechRecognition=class{start(){setTimeout(()=>this.onerror?.({error:'network'}),30)}abort(){}};const real=navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);navigator.mediaDevices.getUserMedia=async c=>{const stream=await real(c);(window.testStreams??=[]).push(stream);return stream}});
-  await page.goto('http://localhost:8080/?v=1.0.0');
+  await page.goto('http://localhost:8080/?v=1.0.1');
   // This suite checks adult media playback and logical-to-physical routing; child defaults and routing have dedicated suites.
   await page.evaluate(()=>{BearLearning.settings({voice:'adult'});BearHub.show('foundation');});
   assert.equal(await page.locator('#foundation-unit-grid button').count(),26);

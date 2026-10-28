@@ -32,7 +32,7 @@ audio/
 | [CHILD-VOICE-CREDITS.txt](metadata/CHILD-VOICE-CREDITS.txt) | 儿童音源及制作说明 |
 | [PHONEME-CREDITS.txt](metadata/PHONEME-CREDITS.txt) | 标准单音来源和许可，含非商业使用限制 |
 
-原始 WAV 已归档到项目外 `/Users/lilei/go/src/outputs/uu-audio-archive/20261022-original-wav/audio/`，不进入源码资源包或部署目录。重新制作时从原始录音开始；归档需要另行备份，不应当作可随意清理的临时目录。
+原始 WAV 独立保存在项目外的音频归档中，不进入源码资源包或部署目录。归档位置由维护者在备份记录中管理，不依赖个人电脑的固定路径。重新制作时先确认归档可用，再按清单中的 sourceAsset/sourceSha256 定位并校验原始录音；归档需要另行备份，不应当作可随意清理的临时目录。
 
 新增音色使用[脚本流程](../scripts/README.md#新音色接入)：WAV 在导入时转换一次（字母除外），MP3 原样导入，再自动分类和去重。导入自动同步对应音色制作清单，记录输入来源和最终录音摘要、解码时长；许可仍需人工核实。`npm run build` 生成完整发布资源，已下载主题需联网更新一次。
 

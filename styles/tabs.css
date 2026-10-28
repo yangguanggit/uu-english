@@ -8,7 +8,7 @@ body :is(.category-rail,.feature-tabs,.course-stages,.discovery-nav)::-webkit-sc
 body :is(.category-rail,.feature-tabs,.course-stages,.discovery-nav)>button{
   flex:0 0 auto;white-space:nowrap;min-height:48px;box-sizing:border-box;
   border:1px solid #dedbcd;border-radius:19px;padding:13px 18px;
-  background:#fffdf7;color:#737c65;font:inherit;font-size:16px;font-weight:600;
+  background:#fffdf7;color:#737c65;font:inherit;font-size:var(--font-size-body);font-weight:600;
   line-height:1.4;text-align:center;cursor:pointer;box-shadow:none;
 }
 body :is(.category-rail,.feature-tabs,.course-stages,.discovery-nav)>button:is([aria-pressed=true],[aria-selected=true],[aria-current=page],.active){
@@ -19,9 +19,9 @@ body :is(.category-rail,.feature-tabs,.course-stages,.discovery-nav)>button:focu
 }
 body :is(.category-rail,.feature-tabs,.course-stages,.discovery-nav)[data-tab-level=secondary]{gap:8px;margin-bottom:18px}
 body :is(.category-rail,.feature-tabs,.course-stages,.discovery-nav)[data-tab-level=secondary]>button{
-  min-height:44px;border-radius:16px;padding:10px 14px;font-size:13px;font-weight:500;
+  min-height:44px;border-radius:16px;padding:10px 14px;font-size:var(--font-size-category);font-weight:500;
 }
 @media(max-width:560px){
-  body :is(.category-rail,.feature-tabs,.course-stages,.discovery-nav)>button{font-size:14px;padding:12px 15px}
-  body :is(.category-rail,.feature-tabs,.course-stages,.discovery-nav)[data-tab-level=secondary]>button{font-size:12px;padding:10px 12px}
+  body :is(.category-rail,.feature-tabs,.course-stages,.discovery-nav)>button{font-size:var(--font-size-body);padding:12px 15px}
+  body :is(.category-rail,.feature-tabs,.course-stages,.discovery-nav)[data-tab-level=secondary]>button{font-size:var(--font-size-category);padding:10px 12px}
 }

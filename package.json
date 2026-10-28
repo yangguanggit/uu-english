@@ -1,6 +1,6 @@
 {
   "name": "uu-english",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "UU说英语 · 儿童英语学习静态 H5；无需 npm install 或打包依赖",
   "scripts": {

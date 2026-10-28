@@ -1,6 +1,6 @@
 # UU说英语
 
-面向儿童的英语启蒙静态 H5，当前版本 **1.0.0**。使用原生 JavaScript，通过 `index.html` 按顺序加载脚本，无前端框架或打包依赖。
+面向儿童的英语启蒙静态 H5，当前版本 **1.0.1**。使用原生 JavaScript，通过 `index.html` 按顺序加载脚本，无前端框架或打包依赖。
 
 学习资源：26 个字母、24 个入门音标、500 个常用单词及对应拼读（分级路线精选其中 100 个示例词）、50 类场景（250 个小游戏、500 条分支）、100 本绘本（10 级）、50 条主题路线，以及 10 类句型积木（每类 10 句，共 100 句）。支持每日任务、复习、角色互换、亲子陪练和内容审校。
 
@@ -14,7 +14,7 @@ uu-english/
 │   ├── parent/            # 家长空间与管理模块
 │   └── shared/            # 导航、音频、存储、学习与审校逻辑
 ├── data/                  # 随版本发布的课程数据
-├── styles/                # 基础、功能与成长互动样式
+├── styles/                # 基础、功能与成长互动样式（字号变量在 base.css）
 ├── audio/                 # adult/、child/、standard/ 按功能细分；metadata/ 存清单
 ├── Dockerfile             # 内置 dist 的非 root Nginx 镜像
 ├── .dockerignore          # 镜像构建上下文白名单
@@ -51,7 +51,7 @@ node scripts/build.cjs                           # 更新清单并生成 dist/
 python3 scripts/serve.py --root dist --port 5181 --disable-diagnostics # 并行预览发布产物
 ```
 
-可直接运行公共镜像 `ghcr.io/yangguanggit/uu-english:1.0.0`；自行构建时先使用 `npm run build` 生成 dist，再通过根目录 Dockerfile 打包。也可由现有 Nginx 挂载持久化目录提供静态服务。两种方式均无需 Python 或 FFmpeg。公共镜像运行命令、本地构建、GHCR 推送、集群配置及发布／回滚步骤见[部署说明](docs/DEPLOYMENT.md)，独立目录发布使用 [vhost 模板](deploy/nginx/uu-english.conf)。正式 MP3 在资源目录直接维护，字母及标准单音保留 WAV；原始录音归档到项目外。
+可直接运行公共镜像 `ghcr.io/yangguanggit/uu-english:1.0.1`；自行构建时先使用 `npm run build` 生成 dist，再通过根目录 Dockerfile 打包。也可由现有 Nginx 挂载持久化目录提供静态服务。两种方式均无需 Python 或 FFmpeg。公共镜像运行命令、本地构建、GHCR 推送、集群配置及发布／回滚步骤见[部署说明](docs/DEPLOYMENT.md)，独立目录发布使用 [vhost 模板](deploy/nginx/uu-english.conf)。正式 MP3 在资源目录直接维护，字母及标准单音保留 WAV；原始录音归档到项目外。
 
 部署 **`dist/` 的全部内容**，站点根目录指向其中的 `index.html`。使用 HTTPS，保留 `audio/` 相对地址及根路径 `sw.js`。构建只替换自己生成的 `dist/`，请勿在其中存放手工维护文件。
 
@@ -94,3 +94,9 @@ Python 服务返回 `Content-Security-Policy: frame-ancestors 'self'`、`X-Frame
 版本以 `package.json` 为准，变更时同步入口资源版本、场景诊断、离线模块、Service Worker 和本地服务；构建校验一致性。`app-revision` 标识具体内容，独立于产品版本。
 
 `.gitignore` 排除部署产物、依赖、缓存、日志和本地配置；课程、正式媒体、许可及离线清单需保留。验证入口见[测试说明](tests/README.md)，变更历史见 [CHANGELOG](docs/CHANGELOG.md)。
+
+## 字体与字号维护
+
+儿童端和家长端共用 `styles/base.css` 中的系统字体栈及字号变量。普通文字统一为 12、16、20、24、32px 五档，分别对应辅助标签、正文与控件、卡片与小节标题、页面标题和主视觉标题；二级分类栏单独使用 14px，上级分类栏使用 16px；页面标题及句型积木使用共享的自适应变量。新增样式引用 `--font-size-*`，不另加零散字号。字母、音标、Emoji 及插画保留独立展示尺寸，SVG 内部字号按画布坐标维护，不作为正文档位。
+
+家长端「发音与显示 → 学习界面」可按孩子设置学习文字大小：标准、大字（1.15 倍）、特大字（1.30 倍）。单词、释义、故事与练习文字随设置缩放，导航和插画保持独立；设置随学习进度备份恢复。跳过、继续和前后学习内容等文字操作入口使用 16px 和至少 44px 的点击高度。

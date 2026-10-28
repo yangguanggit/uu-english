@@ -17,13 +17,13 @@
     section.dataset.readingInteraction = last ? 'order' : 'spot';
     if (!last && task.word) {
       const complete = saved().spot === true;
-      section.innerHTML = `<h3>🔎 故事里找一找</h3><p>这一页提到了哪个词？</p><div class="growth-options">${[
+      section.innerHTML = `<h3>🔎 故事里找一找</h3><p class="learning-copy">这一页提到了哪个词？</p><div class="growth-options">${[
         ...task.choices,
       ]
         .reverse()
         .map(
           (w) =>
-            `<button data-story-spot="${w.id}" ${complete ? 'disabled' : ''}>${w.picture} ${w.text}</button>`,
+            `<button class="learning-copy" data-story-spot="${w.id}" ${complete ? 'disabled' : ''}>${w.picture} ${w.text}</button>`,
         )
         .join(
           '',
@@ -57,13 +57,13 @@
     } else if (last) {
       let order = [],
         mistake = false;
-      section.innerHTML = `<details class="story-activity"><summary>🧩 故事排排队</summary><p>先发生什么，再发生什么？按顺序点选三句。</p><div id="story-order-progress" class="growth-drop"></div><div class="growth-options story-order">${[
+      section.innerHTML = `<details class="story-activity"><summary>🧩 故事排排队</summary><p>先发生什么，再发生什么？按顺序点选三句。</p><div id="story-order-progress" class="growth-drop learning-copy"></div><div class="growth-options story-order">${[
         ...task.indices,
       ]
         .reverse()
         .map(
           (i) =>
-            `<button data-story-order="${i}">${esc(b.pages[i][1])}<small class="translation">${esc(b.pages[i][2])}</small></button>`,
+            `<button class="learning-copy" data-story-order="${i}">${esc(b.pages[i][1])}<small class="translation">${esc(b.pages[i][2])}</small></button>`,
         )
         .join(
           '',

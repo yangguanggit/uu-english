@@ -184,7 +184,7 @@ const { output } = require('./helpers/paths.cjs');
         Cache.prototype.put = async function (key, value) {
           const result = await put.call(this, key, value);
           if ((typeof key === 'string' ? key : key.url) === last) {
-            await (await caches.open('bear-themes-1.0.0')).delete(first);
+            await (await caches.open('bear-themes-1.0.1')).delete(first);
           }
           return result;
         };

@@ -1,4 +1,4 @@
-const BUILD='1.0.0',SHELL=`bear-shell-${BUILD}`,THEMES=`bear-themes-${BUILD}`;
+const BUILD='1.0.1',SHELL=`bear-shell-${BUILD}`,THEMES=`bear-themes-${BUILD}`;
 self.addEventListener('install',()=>self.skipWaiting());
 self.addEventListener('activate',event=>event.waitUntil(self.clients.claim()));
 self.addEventListener('fetch',event=>{

@@ -81,7 +81,7 @@
   function sceneFiles(id){return [...new Set([...sceneTexts(id).map(t=>window.BEAR_EXTRA_AUDIO?.[t]).filter(Boolean).map(f=>f+'.wav'),...sceneResources.flatMap(provider=>provider(id).files||[])])];}
   function mountComprehension(section,b){
     const task=BEAR_READING_ACTIVITIES[b.id],saved=L.reading(b.id).interactions||{},detail=document.createElement('details');detail.className='story-activity';
-    detail.innerHTML=`<summary>📚 ${esc(task.skill)} · ${b.level}</summary><p>${esc(task.discuss)}</p><blockquote>${esc(task.quote)}</blockquote><button class="text-button discuss-done">我试着想过、讲过了</button><p class="discuss-status" role="status">${saved.discussed?'已记录讨论尝试，未验证回答。':''}</p>`;
+    detail.innerHTML=`<summary>📚 ${esc(task.skill)} · ${b.level}</summary><p class="learning-copy">${esc(task.discuss)}</p><blockquote class="learning-copy">${esc(task.quote)}</blockquote><button class="text-button discuss-done">我试着想过、讲过了</button><p class="discuss-status" role="status">${saved.discussed?'已记录讨论尝试，未验证回答。':''}</p>`;
     // The reader owns the single answer handler and its persisted evidence.
     // Keep this alias for the comprehension activity's existing controls.
     section.closest('.story-page').querySelectorAll('[data-book-answer]').forEach(btn=>{btn.dataset.understand=btn.dataset.bookAnswer;});

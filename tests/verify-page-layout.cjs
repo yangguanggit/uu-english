@@ -104,6 +104,103 @@ const { output } = require('./helpers/paths.cjs');
       assert.equal(await page.locator('#playback-voice-note').isVisible(), true);
       await page.locator('#playback-speed-button').click();await page.locator('.select-option[data-value=slow]').click();
       assert.equal(await page.evaluate(()=>BearLearning.get().settings.speed),'slow');
+      await page.locator('#learning-text-size-button').click();
+      await page.locator('.select-option[data-value=extra]').click();
+      assert.equal(await page.evaluate(()=>BearLearning.get().settings.textSize),'extra');
+      assert.equal(await page.locator('body').getAttribute('data-learning-text-size'),'extra');
+      await page.reload();
+      assert.equal(await page.evaluate(()=>BearLearning.get().settings.textSize),'extra');
+      if(await page.locator('#parent-gate').evaluate(el=>el.open))await page.locator('#parent-gate-cancel').click();
+      await page.evaluate(()=>BearHub.show('foundation'));
+      await page.evaluate(()=>BearFoundation.openUnit('word-grandfather'));
+      const size=()=>page.locator('.foundation-hero h2').evaluate(el=>parseFloat(getComputedStyle(el).fontSize));
+      const enlarged=await size();
+      const action=await page.locator('#unit-next').evaluate(el=>({font:parseFloat(getComputedStyle(el).fontSize),height:el.getBoundingClientRect().height}));
+      assert.equal(action.font,16);assert.ok(action.height>=44);
+      await shot('foundation-large');
+      await page.evaluate(()=>BearLearning.settings({textSize:'standard'}));
+      assert.ok(Math.abs(enlarged/await size()-1.3)<0.01,'learning text responds to saved size');
+      await page.evaluate(()=>BearLearning.settings({textSize:'extra'}));
+      const backup=await page.evaluate(()=>{
+        const text=BearProfiles.backupText();BearProfiles.inspect(text);return JSON.parse(text);
+      });
+      assert.equal(backup.children[0].learning.settings.textSize,'extra');
+      await page.locator('[data-child-nav=books]').click();
+      await page.locator('.book-shelf [data-book]').first().click();
+      await shot('story-large');
+      await page.evaluate(()=>BearHub.show('scenes'));
+      await page.locator('.scene-overview [data-resume-game]').click();
+      await shot('scene-large');
+      await page.evaluate(()=>{
+        BearLesson.open('park',false,1,true);
+        document.querySelector(`[data-food="${LITTLE_BEAR_SCENES.park.listen.target}"]`).click();
+        document.querySelector('#continue-button').click();
+        document.querySelector('#practice-button').click();
+        document.querySelector('#continue-button').click();
+      });
+      for(const textSize of ['standard','extra']){
+        await page.evaluate(textSize=>BearLearning.settings({textSize}),textSize);
+        const geometry=await page.locator('#scene').evaluate(el=>{
+          const art=el.querySelector('.kitchen').getBoundingClientRect(),layer=el.querySelector('.scene-hotspots').getBoundingClientRect();
+          return {art:{x:art.x,y:art.y,width:art.width,height:art.height},layer:{x:layer.x,y:layer.y,width:layer.width,height:layer.height},centres:[...el.querySelectorAll('.scene-hotspot')].map(b=>{const r=b.getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2};})};
+        });
+        assert.ok(geometry.centres.length>0,'park exposes actual hotspots');
+        for(const key of ['x','y','width','height'])assert.ok(Math.abs(geometry.art[key]-geometry.layer[key])<1,`hotspot frame matches illustration ${key}/${width}/${textSize}`);
+        for(const c of geometry.centres)assert.ok(c.x>=geometry.art.x&&c.x<=geometry.art.x+geometry.art.width&&c.y>=geometry.art.y&&c.y<=geometry.art.y+geometry.art.height,'hotspots stay on the picture');
+      }
+      await page.locator('[data-spot=tree]').click();
+      assert.equal(await page.locator('[data-spot=tree]').evaluate(el=>el.classList.contains('found')),true);
+      await shot('hotspot-large');
+      const checkLearningSize=async (selectors,headingSelector='.feature-heading h2')=>{
+        const sizes=async()=>Promise.all(selectors.map(selector=>page.locator(selector).first().evaluate(el=>parseFloat(getComputedStyle(el).fontSize))));
+        await page.evaluate(()=>BearLearning.settings({textSize:'standard'}));const original=await sizes();
+        const heading=await page.locator(headingSelector).first().evaluate(el=>getComputedStyle(el).fontSize);
+        for(const [setting,ratio] of [['large',1.15],['extra',1.3]]){
+          await page.evaluate(setting=>BearLearning.settings({textSize:setting}),setting);const enlarged=await sizes();
+          enlarged.forEach((size,i)=>assert.ok(Math.abs(size/original[i]-ratio)<.01,selectors[i]+' scales '+ratio));
+          assert.equal(await page.locator(headingSelector).first().evaluate(el=>getComputedStyle(el).fontSize),heading,'page heading stays fixed');
+        }
+      };
+      await page.evaluate(()=>BearRoleplay.open(Object.keys(BEAR_SCENE_BRANCHES)[0]));
+      await checkLearningSize(['.lab-card h3[lang=en]','.lab-card h3[lang=en]+p','#role-partner h3','#role-partner h3+p']);
+      await shot('role-large');
+      await page.evaluate(()=>BearSentenceBlocks.open());
+      await checkLearningSize(['#sentence-meaning','#sentence-answer','.lab-card h3']);
+      await shot('sentence-large');
+      await page.evaluate(()=>BearFeatures.openPhonics('word-cat'));
+      await checkLearningSize(['.phonics-word-hero h2','.phonics-word-hero .word-ipa','.phonics-word-hero>p']);
+      assert.equal(await page.locator('.phonics-word-hero>p').evaluate(el=>parseFloat(getComputedStyle(el).fontSize)),20.8,'Chinese meaning enlarges with the word');
+      assert.equal(await page.locator('#phonics-zh').evaluate(el=>parseFloat(getComputedStyle(el).fontSize)),16,'pronunciation control stays fixed');
+      await page.locator('.phonics-word-hero').scrollIntoViewIfNeeded();
+      await shot('phonics-large');
+      await page.evaluate(()=>{
+        BearLearning.settings({readerMode:'independent'});
+        const book=BEAR_BOOKS.find(b=>b.id==='milk');
+        BearLearning.reading(book.id,{page:book.pages.length-1});
+        BearFeatures.openBook(book.id);
+      });
+      await page.locator('.story-activity summary').filter({hasText:'故事排排队'}).click();
+      await page.locator('.story-activity summary').filter({hasText:'📚'}).click();
+      await checkLearningSize(['.book-question h3','[data-book-answer]','[data-story-order]','[data-story-order] .translation','#story-order-progress','.story-activity blockquote'],'.story-top>strong');
+      await page.locator('.book-question').scrollIntoViewIfNeeded();
+      await shot('story-question-large');
+      assert.equal(await page.locator('.discuss-done').evaluate(el=>parseFloat(getComputedStyle(el).fontSize)),16,'discussion acknowledgment stays fixed');
+      assert.equal(await page.locator('#book-next').evaluate(el=>parseFloat(getComputedStyle(el).fontSize)),16,'page navigation stays fixed');
+      await page.evaluate(()=>{
+        const book=BEAR_BOOKS.find(b=>b.id==='milk');
+        BearLearning.reading(book.id,{page:BearGrowth.readingTasks(book).page});
+        BearFeatures.openBook(book.id);
+      });
+      await checkLearningSize(['[data-story-spot]','.reading-interaction>p'],'.story-top>strong');
+      await page.evaluate(()=>{
+        const book=BEAR_BOOKS.find(b=>b.id==='milk');
+        BearLearning.reading(book.id,{page:book.pages.findIndex(p=>p[3].length>0)});
+        BearFeatures.openBook(book.id);
+      });
+      await checkLearningSize(['[data-story-word]'],'.story-top>strong');
+      const newChild=await page.evaluate(async()=>await BearProfiles.add('字号验证'));
+      await Promise.all([page.waitForNavigation(),page.evaluate(id=>BearProfiles.switchTo(id),newChild)]);
+      assert.equal(await page.evaluate(()=>BearLearning.get().settings.textSize),'standard','new child keeps its own size');
       assert.deepEqual(errors, []);
       await context.close();
       console.log(`PASS ${width}px: six pages, drawer/focus, sticky categories, media controls, scene entry, reading resume and parent preferences`);

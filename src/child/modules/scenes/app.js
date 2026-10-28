@@ -36,7 +36,7 @@
   const sessions = new Map();
   let state = freshState();
   sessions.set(game.id, state);
-  const kitchenArt = document.querySelector('#scene > .kitchen').outerHTML;
+  const kitchenArt = document.querySelector('#scene .scene-illustration > .kitchen').outerHTML;
   document.body.insertAdjacentHTML('afterbegin', window.LITTLE_BEAR_SYMBOLS);
   const promptsFor = (scene) => [
     scene.listen,
@@ -788,7 +788,7 @@
       if (!sessions.has(id)) sessions.set(id, freshState());
       state = sessions.get(id);
     }
-    document.querySelector('#scene > .kitchen').outerHTML = game.illustration || kitchenArt;
+    document.querySelector('#scene .scene-illustration > .kitchen').outerHTML = game.illustration || kitchenArt;
     $('scene').dataset.scene = id;
     $('lesson-title').textContent = `${game.title} ${game.emoji}`;
     document.querySelector('.lesson-heading > p').textContent = game.subtitle;
@@ -833,7 +833,7 @@
   const diagnose = (event, detail = {}) => {
     // Browser diagnostics stay local; the internal collector is never a public API.
     window.dispatchEvent(new CustomEvent('bear:diagnostic', {
-      detail: { build: '1.0.0', event, ...detail },
+      detail: { build: '1.0.1', event, ...detail },
     }));
   };
   microphone = new MicrophonePractice({

@@ -110,7 +110,7 @@ const { output } = require('./helpers/paths.cjs');
       assert.match(await a.locator('[data-theme-title]').filter({ has: a.locator('[data-download=breakfast]') }).innerText(), /未完成/);
       await a.locator('[data-offline-remove=breakfast]').click();
       await a.waitForFunction(() => !document.querySelector('[data-offline-remove=breakfast]'));
-      assert.deepEqual(await a.evaluate(async () => ({ rows: await BearOffline.status(), media: (await (await caches.open('bear-themes-1.0.0')).keys()).filter(k => new URL(k.url).pathname.includes('/audio/')).length, blobs: (await (await caches.open('bear-media-sha256-v1')).keys()).length })), { rows: [], media: 0, blobs: 0 });
+      assert.deepEqual(await a.evaluate(async () => ({ rows: await BearOffline.status(), media: (await (await caches.open('bear-themes-1.0.1')).keys()).filter(k => new URL(k.url).pathname.includes('/audio/')).length, blobs: (await (await caches.open('bear-media-sha256-v1')).keys()).length })), { rows: [], media: 0, blobs: 0 });
     }, true);
     await test('failed updates retain completed metadata; retry succeeds without damaging another pack', async (a) => {
       await a.evaluate(() => BearOffline.download('breakfast'));
@@ -132,7 +132,7 @@ const { output } = require('./helpers/paths.cjs');
       assert.equal(await a.evaluate(() => BearOffline.verify('breakfast')), true);
       await a.evaluate(() => BearOffline.remove('breakfast'));
       assert.equal(await a.evaluate(() => BearOffline.verify('park')), true);
-      assert.equal(await a.evaluate(async () => (await (await caches.open('bear-themes-1.0.0')).keys()).some(k => k.url.includes('/__offline_pending__/'))), false);
+      assert.equal(await a.evaluate(async () => (await (await caches.open('bear-themes-1.0.1')).keys()).some(k => k.url.includes('/__offline_pending__/'))), false);
     }, true);
     await test('failed deletion retains a retryable package and never deletes other package media', async (a) => {
       await a.evaluate(() => BearOffline.download('breakfast'));
@@ -155,7 +155,7 @@ const { output } = require('./helpers/paths.cjs');
     await test('storage UI reclaims legacy untracked media after reload without deleting progress', async (a) => {
       await a.evaluate(async () => {
         await BearOffline.ready;
-        const cache = await caches.open('bear-themes-1.0.0'), file = (await BearOffline.bundle('breakfast')).files[0];
+        const cache = await caches.open('bear-themes-1.0.1'), file = (await BearOffline.bundle('breakfast')).files[0];
         await cache.put(new URL(file, location.href), new Response('legacy orphan'));
         BearLearning.record('word-cat', 'practiced');
       });
@@ -165,7 +165,7 @@ const { output } = require('./helpers/paths.cjs');
       await a.locator('[data-parent-open=storage]').click();
       await a.locator('#cleanup-offline-media').click();
       await a.waitForFunction(() => document.querySelector('#offline-cleanup-status').textContent.includes('已清理未被主题引用'));
-      assert.equal(await a.evaluate(async () => (await (await caches.open('bear-themes-1.0.0')).keys()).filter(k => k.url.includes('/audio/')).length), 0);
+      assert.equal(await a.evaluate(async () => (await (await caches.open('bear-themes-1.0.1')).keys()).filter(k => k.url.includes('/audio/')).length), 0);
       assert.equal(await a.evaluate(() => BearLearning.get().items['word-cat'].practiced), 1);
     }, true);
   } finally {

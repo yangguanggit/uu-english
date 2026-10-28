@@ -2,12 +2,21 @@
 
 提供两种方式：**Docker 镜像内置 dist**，或**现有 Nginx + 持久化目录，只发布 dist/**。两种方式均无需部署 Python。容器部署优先使用镜像方式，Pod 重建会从同一镜像恢复全部静态资源。可以直接运行已发布镜像，也可以自行构建；示例账号、域名和对象名按实际环境填写。
 
+## 发布时同步的信息
+
+- 确定新版本号，同步 package.json、入口资源与界面版本、Service Worker、离线模块、服务版本及 Docker 镜像标签；重新构建 dist 并运行验证，资源摘要由构建生成。
+- 将 CHANGELOG 的「未发布」条目归档到对应版本与发布日期，保留历史版本记录。
+- 使用新的镜像标签构建、扫描并推送；推送成功后再更新本文和项目 README 中的公共镜像版本、摘要及运行示例，不覆盖已发布标签。
+- 集群更新后核对健康检查版本、实际镜像摘要并完成下文验收，保留上一镜像摘要用于回滚。
+
+未发布改动与已发布镜像信息分别维护；仅修改源码或完成本地构建，不提前更新公共镜像记录。
+
 ## 直接运行已发布公共镜像
 
-当前公共镜像为 `ghcr.io/yangguanggit/uu-english:1.0.0`，平台为 `linux/amd64`，已包含站点资源和 Nginx 配置。不需要登录 GHCR、下载源码或执行 npm 构建。
+当前公共镜像为 `ghcr.io/yangguanggit/uu-english:1.0.1`，平台为 `linux/amd64`，已包含站点资源和 Nginx 配置。不需要登录 GHCR、下载源码或执行 npm 构建。
 
 ```bash
-docker pull --platform linux/amd64 ghcr.io/yangguanggit/uu-english:1.0.0
+docker pull --platform linux/amd64 ghcr.io/yangguanggit/uu-english:1.0.1
 
 docker run -d --name uu-english \
   --platform linux/amd64 \
@@ -16,7 +25,7 @@ docker run -d --name uu-english \
   --cap-drop ALL \
   --security-opt no-new-privileges \
   -p 127.0.0.1:8080:8080 \
-  ghcr.io/yangguanggit/uu-english:1.0.0
+  ghcr.io/yangguanggit/uu-english:1.0.1
 
 curl -f http://localhost:8080/__health
 docker logs --tail 20 uu-english
@@ -27,7 +36,7 @@ docker logs --tail 20 uu-english
 停止并移除容器使用 `docker rm -f uu-english`。需要固定本次发布时，镜像地址使用：
 
 ```text
-ghcr.io/yangguanggit/uu-english:1.0.0@sha256:49487992fceb36d3dcbc1de142f6b6d5630131ed28c02b3ac80d131d659115ef
+ghcr.io/yangguanggit/uu-english:1.0.1@sha256:4310187415f5bd799d8456ebc57834569bb26c5fe9eab0b1627e47976cac3fb6
 ```
 
 以下构建章节仅用于自行制作镜像或目录发布；直接运行公共镜像可跳到第 5 节验收。
@@ -81,6 +90,8 @@ docker logs --tail 20 uu-english-local
 
 打开 `http://localhost:8080/`。如果端口被占用，可将映射改为 `127.0.0.1:8088:8080`；切换端口会产生独立的浏览器学习数据空间。该容器不需要内容挂载，临时目录仅用于 Nginx 运行文件，不存孩子数据。
 
+源码构建使用官方 Nginx Alpine Slim，并在 Dockerfile 固定摘要，避免引入静态站点不需要的 curl 等依赖。已发布的公共镜像不会随本地 Dockerfile 变化自动更新，修复需重新构建并按发布流程使用新的镜像版本。
+
 镜像以 `101:101` 非 root 用户运行并监听 `8080`。[nginx.conf](../deploy/nginx/nginx.conf) 是完整容器配置，[uu-english.conf](../deploy/nginx/uu-english.conf) 是其引用的 vhost。镜像将 vhost 的示例 server_name 改成 `_`；域名由外部反向代理或 Ingress 路由。配置及资源修改后必须重新构建镜像、重建容器；仅重启旧容器不会更新镜像或内容。
 
 停止并移除本地验证容器：
@@ -95,8 +106,8 @@ docker rm -f uu-english-local
 
 ```bash
 docker login ghcr.io -u your-account
-docker tag uu-english:local ghcr.io/your-account/uu-english:1.0.0
-docker push ghcr.io/your-account/uu-english:1.0.0
+docker tag uu-english:local ghcr.io/your-account/uu-english:1.0.1
+docker push ghcr.io/your-account/uu-english:1.0.1
 ```
 
 新发布的 GHCR 包默认可能是私有。若需要匿名拉取，在 GitHub 的 Package settings 中将可见性设为 Public；公开后任何人都能下载发布资源。私有镜像需在集群配置只读拉取凭据。镜像仓库与源码仓库可见性独立，不能由源码公开推断镜像公开。

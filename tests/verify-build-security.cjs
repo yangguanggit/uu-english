@@ -8,7 +8,7 @@ try{
  for(const file of ['build.cjs','generate-offline.cjs','runtime-files.cjs','audio-layout.cjs'])put('scripts/'+file,fs.readFileSync(path.join(root,'scripts',file)));
  // Audio registry semantics are covered separately; this fixture tests packaging boundaries.
  put('scripts/voice-pack.cjs','exports.validateRegistry=()=>[];');
- put('package.json','{"version":"1.0.0"}');put('index.html','<meta name="app-revision" content=""><script src="src/main.js?v=1.0.0"></script>');
+ put('package.json','{"version":"1.0.1"}');put('index.html','<meta name="app-revision" content=""><script src="src/main.js?v=1.0.1"></script>');
  for(const file of ['sw.js','src/main.js','docs/WORD-IPA-CREDITS.txt','docs/PHONICS-CREDITS.md','audio/metadata/CHILD-VOICE-CREDITS.txt','audio/metadata/PHONEME-CREDITS.txt'])put(file,'fixture');
  put('audio/adult/scenes/valid.wav','fixture-audio');put('audio/internal-notes.txt','non-sensitive canary');put('audio/nested/private.txt','canary');
  let result=run();assert.equal(result.status,0,result.stderr);

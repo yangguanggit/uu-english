@@ -86,7 +86,7 @@ fs.mkdirSync(output, { recursive: true });
       localStorage.setItem(key,JSON.stringify(saved));return saved;
     });
     await p.reload();
-    assert.deepEqual(await p.evaluate(() => BearLearning.get()),{...legacy,settings:{planMinutes:10,readerMode:'follow',voice:'child',voiceChosen:false,...legacy.settings}});
+    assert.deepEqual(await p.evaluate(() => BearLearning.get()),{...legacy,settings:{planMinutes:10,readerMode:'follow',voice:'child',voiceChosen:false,textSize:'standard',...legacy.settings}});
     await p.evaluate(async () => {
       // HTTP origins may lack randomUUID even when browser storage works.
       Object.defineProperty(crypto,'randomUUID',{value:undefined,configurable:true});

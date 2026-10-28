@@ -50,7 +50,7 @@
   function restorePlan(rows){
     let retained=index.children,removed=[];
     if(retained.length+rows.length>20&&retained.length===1&&retained[0].name==='小探险家'){
-      const child=retained[0],s=window.BearLearning.snapshot(child.id),defaults={mode:'explorer',chinese:true,speed:'medium',speedChosen:false,voice:'child',voiceChosen:false,planMinutes:10,readerMode:'follow'};
+      const child=retained[0],s=window.BearLearning.snapshot(child.id),defaults={mode:'explorer',chinese:true,speed:'medium',speedChosen:false,voice:'child',voiceChosen:false,planMinutes:10,readerMode:'follow',textSize:'standard'};
       const empty=['items','foundation','reading','activity'].every(key=>Object.keys(s[key]||{}).length===0)&&['awards','placed','parentDone','favorites','recent'].every(key=>!(s[key]||[]).length)&&Object.values(s.days||{}).every(day=>!day.done.length)&&Object.entries(s.settings).every(([key,value])=>defaults[key]===value)&&JSON.parse(read(storageKey(stores[2],child.id))||'[]').length===0;
       if(empty&&!s.growth?.reviews?.length&&!Object.keys(s.growth?.lab?.sentences||{}).length&&!Object.keys(s.growth?.lab?.roles||{}).length&&!s.growth?.assessment&&!s.growth?.draft&&!s.growth?.issues?.length&&!Object.keys(s.growth?.sessions||{}).length&&!Object.keys(s.growth?.games||{}).length&&!Object.keys(s.growth?.gameDrafts||{}).length&&!Object.keys(s.growth?.practice?.recent||{}).length&&!Object.keys(s.growth?.practice?.transfers||{}).length){retained=[];removed=[child];}
     }
@@ -97,6 +97,7 @@
     if(s.settings.voice!==undefined&&(typeof s.settings.voice!=='string'||!/^[a-z][a-z0-9-]{0,39}$/.test(s.settings.voice)))fail();
     if(s.settings.voiceChosen!==undefined&&typeof s.settings.voiceChosen!=='boolean')fail();
     if(s.settings.planMinutes!==undefined&&![5,10,15].includes(s.settings.planMinutes))fail();
+    if(s.settings.textSize!==undefined&&!['standard','large','extra'].includes(s.settings.textSize))fail();
     if(s.settings.readerMode!==undefined&&!['listen','follow','independent'].includes(s.settings.readerMode))fail();
     if(s.settings.phonicsStage!==undefined&&!BEAR_PHONICS_COURSE.some(c=>c.id===s.settings.phonicsStage))fail();
     if(s.favorites!==undefined&&(!Array.isArray(s.favorites)||s.favorites.some(k=>typeof k!=='string'||!BearLearningTools.validKey(k))))fail();

@@ -1,7 +1,7 @@
 /* Local evidence and scheduling. Raw audio and transcripts are never persisted. */
 (() => {
   const childId=window.BearProfiles.current().id,KEY=window.BearProfiles.storageKey('bear-learning-v1'),words=window.BEAR_FOUNDATIONS.words;
-  const empty=()=>({version:1,foundation:{},items:{},days:{},awards:[],placed:[],settings:{mode:'explorer',chinese:true,speed:'medium',speedChosen:false,voice:'child',voiceChosen:false,planMinutes:10,readerMode:'follow'},parentDone:[],reading:{},activity:{},favorites:[],recent:[],growth:{assessment:null,draft:null,issues:[],sessions:{},games:{},gameDrafts:{},practice:{recent:{},transfers:{}},lab:{sentences:{},roles:{}},reviews:[]}});
+  const empty=()=>({version:1,foundation:{},items:{},days:{},awards:[],placed:[],settings:{mode:'explorer',chinese:true,speed:'medium',speedChosen:false,voice:'child',voiceChosen:false,planMinutes:10,readerMode:'follow',textSize:'standard'},parentDone:[],reading:{},activity:{},favorites:[],recent:[],growth:{assessment:null,draft:null,issues:[],sessions:{},games:{},gameDrafts:{},practice:{recent:{},transfers:{}},lab:{sentences:{},roles:{}},reviews:[]}});
   const hydrate=saved=>{const s=empty();if(saved?.version===1)Object.assign(s,saved,{settings:{...s.settings,...saved.settings},reading:saved.reading||{},growth:{...s.growth,...saved.growth}});if(saved?.settings?.voiceChosen===undefined){s.settings.voiceChosen=!!saved?.settings?.voice&&saved.settings.voice!=='adult';if(!s.settings.voiceChosen)s.settings.voice='child';}if(!s.settings.speedChosen&&s.settings.speed==='normal')s.settings.speed='medium';if(s.settings.speed==='extraSlow')s.settings.speed='slow';return s;};
   const today=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;};
   let state=empty(),persistent=true,clock=0;
@@ -253,7 +253,7 @@
     reading(id,update){if(update)change('reading',{id,change:update});return refresh().reading[id]||{page:0,heard:[],answer:false};},
     completeBook(id){plan();change('completeBook',{id});},clear,compact
   };
-  function applySettings(){document.body.dataset.childMode=state.settings.mode;document.body.classList.toggle('chinese-folded',!state.settings.chinese);}
+  function applySettings(){document.body.dataset.childMode=state.settings.mode;document.body.dataset.learningTextSize=['standard','large','extra'].includes(state.settings.textSize)?state.settings.textSize:'standard';document.body.classList.toggle('chinese-folded',!state.settings.chinese);}
   window.addEventListener('storage',e=>{if(window.BearProfiles.has(childId)&&window.BearProfiles.current().id===childId&&(e.key===null||e.key===KEY+':epoch'||e.key?.startsWith(stemFor(KEY,epochFor(KEY))+':'))){refresh();notify();}});
   refresh();applySettings();
 })();

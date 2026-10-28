@@ -49,7 +49,7 @@ const origin = 'http://localhost:8080';
 
       await page.locator('#same-origin-probe').evaluate(el => el.remove());
       await page.evaluate(async () => {
-        const cache = await caches.open('bear-shell-1.0.0');
+        const cache = await caches.open('bear-shell-1.0.1');
         await cache.put(new URL('./', location.href).href, new Response(
           '<!doctype html><title>Old offline shell</title><script>window.__offlineSecurityProbe=true</script>',
           { headers: { 'Content-Type': 'text/html' } },

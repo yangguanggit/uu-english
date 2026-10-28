@@ -205,16 +205,16 @@
                 (x) => typeof x === 'object' && x.word === text && x.variant,
               ),
               picture = ref ? BearArtwork.render(ref.variant + ' ' + text, w?.picture) : w?.picture;
-            return w ? `<button data-story-word="${w.id}">${picture} ${w.text}</button>` : '';
+            return w ? `<button class="learning-copy" data-story-word="${w.id}">${picture} ${w.text}</button>` : '';
           })
           .join(
             '',
           )}</div><button id="book-listen" class="continue-button">♫ 再听这一页</button><div class="book-dubbing"><button id="book-record" class="record-button" ${mic.available ? '' : 'disabled'}>🎙️ 我来给 UU 配音</button><p id="book-mic-status" role="status"></p><audio id="book-recording" controls hidden aria-label="回听本页配音"></audio><button id="book-save" class="text-button" hidden>记下这次配音练习</button></div>${
           page === b.pages.length - 1
-            ? `<div class="book-question"><h3>${b.question}</h3>${b.choices
+            ? `<div class="book-question"><h3 class="learning-copy">${b.question}</h3>${b.choices
                 .map((text) => {
                   const w = D.words.find((x) => x.text === text);
-                  return `<button data-book-answer="${text}">${w.picture} ${text}</button>`;
+                  return `<button class="learning-copy" data-book-answer="${text}">${w.picture} ${text}</button>`;
                 })
                 .join('')}<p id="book-answer-feedback" role="status"></p></div>`
             : ''
