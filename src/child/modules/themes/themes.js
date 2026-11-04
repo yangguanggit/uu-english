@@ -60,7 +60,7 @@
             `先认识三个故事关键词，再玩场景、读绘本。${BearCurriculum.words(t.id).length} 个关联词将在每日路线中逐步安排。`,
           ) +
           art(t.art, { className: 'theme-detail-art' }) +
-          `<div class="theme-path"><button id="theme-words" class="continue-button">① 听三个故事关键词</button><button id="theme-scene" class="continue-button">② 玩场景游戏</button><button id="theme-book" class="continue-button">③ 读主题绘本</button><button id="theme-exchange" class="text-button">再和米米交流三轮 →</button></div><button id="theme-back" class="text-button">返回首页</button>`;
+          `<div class="theme-path"><button id="theme-words" class="continue-button">① 听三个故事关键词</button><button id="theme-scene" class="continue-button">② 练场景对话</button><button id="theme-book" class="continue-button">③ 读主题绘本</button><button id="theme-exchange" class="text-button">再和米米交流三轮 →</button></div><button id="theme-back" class="text-button">返回首页</button>`;
         $('theme-words').onclick = () => {
           startQuiz({
             ids: t.words.map((text) => D.words.find((w) => w.text === text).id),

@@ -25,3 +25,6 @@ body :is(.category-rail,.feature-tabs,.course-stages,.discovery-nav)[data-tab-le
   body :is(.category-rail,.feature-tabs,.course-stages,.discovery-nav)>button{font-size:var(--font-size-body);padding:12px 15px}
   body :is(.category-rail,.feature-tabs,.course-stages,.discovery-nav)[data-tab-level=secondary]>button{font-size:var(--font-size-category);padding:10px 12px}
 }
+/* Pointer-based rail scrolling also works inside content surfaces that reserve pan-y. */
+.category-scroll-rail{touch-action:pan-y;user-select:none;cursor:grab}
+.category-scroll-rail:active{cursor:grabbing}

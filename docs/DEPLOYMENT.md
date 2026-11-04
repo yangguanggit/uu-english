@@ -13,10 +13,10 @@
 
 ## 直接运行已发布公共镜像
 
-当前公共镜像为 `ghcr.io/yangguanggit/uu-english:1.0.1`，平台为 `linux/amd64`，已包含站点资源和 Nginx 配置。不需要登录 GHCR、下载源码或执行 npm 构建。
+当前公共镜像为 `ghcr.io/yangguanggit/uu-english:1.1.0-build.2`，平台为 `linux/amd64`，已包含站点资源和 Nginx 配置。不需要登录 GHCR、下载源码或执行 npm 构建。
 
 ```bash
-docker pull --platform linux/amd64 ghcr.io/yangguanggit/uu-english:1.0.1
+docker pull --platform linux/amd64 ghcr.io/yangguanggit/uu-english:1.1.0-build.2
 
 docker run -d --name uu-english \
   --platform linux/amd64 \
@@ -25,7 +25,7 @@ docker run -d --name uu-english \
   --cap-drop ALL \
   --security-opt no-new-privileges \
   -p 127.0.0.1:8080:8080 \
-  ghcr.io/yangguanggit/uu-english:1.0.1
+  ghcr.io/yangguanggit/uu-english:1.1.0-build.2
 
 curl -f http://localhost:8080/__health
 docker logs --tail 20 uu-english
@@ -36,7 +36,7 @@ docker logs --tail 20 uu-english
 停止并移除容器使用 `docker rm -f uu-english`。需要固定本次发布时，镜像地址使用：
 
 ```text
-ghcr.io/yangguanggit/uu-english:1.0.1@sha256:4310187415f5bd799d8456ebc57834569bb26c5fe9eab0b1627e47976cac3fb6
+ghcr.io/yangguanggit/uu-english:1.1.0-build.2@sha256:27bf193ffb75f660667ab11c72946ad7c1cfa43cc2f99c7f1186fdca57b25235
 ```
 
 以下构建章节仅用于自行制作镜像或目录发布；直接运行公共镜像可跳到第 5 节验收。
@@ -106,8 +106,8 @@ docker rm -f uu-english-local
 
 ```bash
 docker login ghcr.io -u your-account
-docker tag uu-english:local ghcr.io/your-account/uu-english:1.0.1
-docker push ghcr.io/your-account/uu-english:1.0.1
+docker tag uu-english:local ghcr.io/your-account/uu-english:1.1.0-build.2
+docker push ghcr.io/your-account/uu-english:1.1.0-build.2
 ```
 
 新发布的 GHCR 包默认可能是私有。若需要匿名拉取，在 GitHub 的 Package settings 中将可见性设为 Public；公开后任何人都能下载发布资源。私有镜像需在集群配置只读拉取凭据。镜像仓库与源码仓库可见性独立，不能由源码公开推断镜像公开。

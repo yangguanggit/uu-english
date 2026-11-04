@@ -5,7 +5,7 @@
   let last=performance.now(),interaction=last,pending=0,day=L.today();
   // A nonmodal card library can stay open in desktop layouts, even on hidden pages.
   const blocked=()=>Boolean(document.querySelector('dialog:modal'));
-  const active=()=>{const key=window.BearNavigation?.capture()?.key||'';const learning=key==='section:foundation'||key==='feature:phonics'||key.startsWith('lab:sentences:')||key.startsWith('lab:role:')||key==='quiz'||key==='mixed-review'||key.startsWith('book:')||key.startsWith('lesson:')||key==='growth:assessment'||key.startsWith('growth:game-');return learning&&!document.hidden&&!BearNavigation.isParent()&&!blocked()&&performance.now()-interaction<60000;};
+  const active=()=>{const key=window.BearNavigation?.capture()?.key||'';const learning=key==='spelling:play'||key==='section:foundation'||key==='feature:phonics'||key.startsWith('lab:sentences:')||key.startsWith('lab:role:')||key==='quiz'||key==='mixed-review'||key.startsWith('book:')||key.startsWith('lesson:')||key==='growth:assessment'||key.startsWith('growth:game-');return learning&&!document.hidden&&!BearNavigation.isParent()&&!blocked()&&performance.now()-interaction<60000;};
   function flush(){const seconds=Math.floor(pending/1000);if(seconds){const session=L.get().growth.sessions[L.today()],remaining=86400-(session?.seconds||0);if(remaining>0)L.growth('growthSession',{seconds:Math.min(seconds,remaining)});pending-=seconds*1000;}}
   function tick(){const now=performance.now(),elapsed=now-last;last=now;if(day!==L.today()){pending=0;day=L.today();}if(active())pending+=Math.min(elapsed,5000);if(pending>=15000)flush();}
   for(const name of ['pointerdown','keydown','touchstart'])document.addEventListener(name,()=>{tick();interaction=performance.now();},{passive:true});

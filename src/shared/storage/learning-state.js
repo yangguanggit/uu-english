@@ -1,7 +1,7 @@
 /* Local evidence and scheduling. Raw audio and transcripts are never persisted. */
 (() => {
   const childId=window.BearProfiles.current().id,KEY=window.BearProfiles.storageKey('bear-learning-v1'),words=window.BEAR_FOUNDATIONS.words;
-  const empty=()=>({version:1,foundation:{},items:{},days:{},awards:[],placed:[],settings:{mode:'explorer',chinese:true,speed:'medium',speedChosen:false,voice:'child',voiceChosen:false,planMinutes:10,readerMode:'follow',textSize:'standard'},parentDone:[],reading:{},activity:{},favorites:[],recent:[],growth:{assessment:null,draft:null,issues:[],sessions:{},games:{},gameDrafts:{},practice:{recent:{},transfers:{}},lab:{sentences:{},roles:{}},reviews:[]}});
+  const empty=()=>({version:1,foundation:{},items:{},days:{},awards:[],placed:[],settings:{mode:'explorer',chinese:true,speed:'medium',speedChosen:false,voice:'child',voiceChosen:false,planMinutes:10,readerMode:'follow',textSize:'standard'},parentDone:[],reading:{},activity:{},favorites:[],recent:[],growth:{assessment:null,draft:null,issues:[],sessions:{},games:{},spelling:{},gameDrafts:{},practice:{recent:{},transfers:{}},lab:{sentences:{},roles:{}},reviews:[]}});
   const hydrate=saved=>{const s=empty();if(saved?.version===1)Object.assign(s,saved,{settings:{...s.settings,...saved.settings},reading:saved.reading||{},growth:{...s.growth,...saved.growth}});if(saved?.settings?.voiceChosen===undefined){s.settings.voiceChosen=!!saved?.settings?.voice&&saved.settings.voice!=='adult';if(!s.settings.voiceChosen)s.settings.voice='child';}if(!s.settings.speedChosen&&s.settings.speed==='normal')s.settings.speed='medium';if(s.settings.speed==='extraSlow')s.settings.speed='slow';return s;};
   const today=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;};
   let state=empty(),persistent=true,clock=0;
@@ -98,6 +98,13 @@
       case 'growthIssueRemove':s.growth.issues=s.growth.issues.filter(x=>x.id!==a.id);break;
       case 'growthSession':{const session=s.growth.sessions[date]||(s.growth.sessions[date]={seconds:0,restAt:0});session.seconds+=a.seconds;break;}
       case 'growthRest':{const session=s.growth.sessions[date]||(s.growth.sessions[date]={seconds:0,restAt:0});session.restAt=session.seconds;break;}
+      case 'spellingStage':{
+        if(!Number.isInteger(a.level)||a.level<0||a.level>9||typeof a.key!=='string')break;
+        const stages=s.growth.spelling||={};const done=stages[a.key]||[];
+        // Union per-level evidence so delayed tabs cannot relock a cleared stage.
+        if(!done.includes(a.level)&&a.level<=done.length)stages[a.key]=[...done,a.level].sort((a,b)=>a-b);
+        break;
+      }
       case 'growthGameDraft':latest(['gameDraft',a.id],()=>{s.growth.gameDrafts[a.id]=a.value;});break;
       case 'growthGame':latest(['game',a.id],()=>{s.growth.games[a.id]={...a.value,time:now};});break;
       case 'foundationMark':latest(['foundation',a.id],()=>{if(e.id>(versions[JSON.stringify(['foundationClear'])]||''))s.foundation[a.id]={mode:a.mode,time:new Date(now).toISOString()};});break;
@@ -243,7 +250,7 @@
   const fileToUnit=new Map([...window.BEAR_FOUNDATIONS.letters,...window.BEAR_FOUNDATIONS.phonemes,...words].map(u=>[u.audio,u.id]));
   const taskContext=(p=plan())=>({date:today(),revision:planRevision(p)});
   window.BearLearning={today,plan,snapshot,required,taskContext,
-    growth(action,args){if(['growthLab','growthReview','growthPractice','growthDraft','growthAssessment','growthIssue','growthIssueRemove','growthSession','growthRest','growthGame','growthGameDraft'].includes(action))change(action,args);},
+    growth(action,args){if(['spellingStage','growthLab','growthReview','growthPractice','growthDraft','growthAssessment','growthIssue','growthIssueRemove','growthSession','growthRest','growthGame','growthGameDraft'].includes(action))change(action,args);},
     choosePlan(themeId,minutes){const theme=window.BEAR_LEARNING_THEMES.find(t=>t.id===themeId);if(!theme||![5,10,15].includes(minutes))throw Error('请选择有效主题和学习时长');change('settings',{change:{planMinutes:minutes}});change('planChoice',{plan:makePlan(refresh(),theme)});return plan();},
     favorite(key,chosen=!refresh().favorites.includes(key)){change('favorite',{key,chosen});},visit(key){change('visit',{key});},due(){return dueFrom(refresh());},record(id,type,{hinted=false,foundation=false,countActivity=true}={}){if(typeof id!=='string'||(id.startsWith('dialogue:')&&window.BearGrowth&&!window.BearGrowth.parseDialogueKey(id)))return;change('record',{id,type,hinted,foundation,countActivity});},foundation:()=>refresh().foundation,clearFoundation(){change('clearFoundation');},
     task(key,context=taskContext()){plan();change('task',{key,context});},sceneComplete(id){plan();change('sceneComplete',{id});},exchange(id){plan();change('exchange',{id});},

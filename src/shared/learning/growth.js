@@ -55,6 +55,7 @@
     if(g.issues.some(x=>!object(x)||typeof x.id!=='string'||x.id.length>80||!window.BearGrowth.resourceValid(x.resource)||!['audio','chinese','ipa','art','other'].includes(x.type)||typeof x.note!=='string'||x.note.length>300||!Number.isFinite(x.time)||x.time<0||x.page!==null&&(!integer(x.page,5)||!x.resource.startsWith('book:'))))return false;
     if(Object.entries(g.sessions).some(([date,v])=>!/^\d{4}-\d{2}-\d{2}$/.test(date)||!object(v)||!integer(v.seconds,86400)||!integer(v.restAt,v.seconds)))return false;
     if(g.gameDrafts!==undefined&&(!object(g.gameDrafts)||Object.entries(g.gameDrafts).some(([key,v])=>!['basket','bag','order'].includes(key)||!object(v)||!Array.isArray(v.ids)||v.ids.length!==3||new Set(v.ids).size!==3||v.ids.some(id=>!D.words.some(w=>w.id===id))||!integer(v.index,3)||!integer(v.correct,v.index)||typeof v.wrong!=='boolean')))return false;
+    if(g.spelling!==undefined&&!BearGameLevels.validateProgress(g.spelling))return false;
     if(Object.entries(g.games).some(([key,v])=>!['basket','bag','order'].includes(key)||!object(v)||!integer(v.correct,3)||!integer(v.total,3)||v.total!==3||!Number.isFinite(v.time)||v.time<0))return false;
     return true;
   }

@@ -753,7 +753,7 @@
     const completed = categoryRoute.filter(
       (scene) => sessions.get(scene.id)?.completed.length === 3,
     ).length;
-    $('lesson-category-heading').textContent = `${game.categoryTitle} · 五个交流小游戏`;
+    $('lesson-category-heading').textContent = `${game.categoryTitle} · 五段交流对话`;
     $('route-position').textContent = `本类第 ${categoryRoute.indexOf(game) + 1} / 5 关`;
     $('route-completed').textContent = `本类已完成 ${completed} / 5 关`;
     $('route-track-fill').style.width = `${(completed / 5) * 100}%`;
@@ -833,7 +833,7 @@
   const diagnose = (event, detail = {}) => {
     // Browser diagnostics stay local; the internal collector is never a public API.
     window.dispatchEvent(new CustomEvent('bear:diagnostic', {
-      detail: { build: '1.0.1', event, ...detail },
+      detail: { build: '1.1.0', event, ...detail },
     }));
   };
   microphone = new MicrophonePractice({

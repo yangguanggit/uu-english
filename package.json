@@ -1,6 +1,6 @@
 {
   "name": "uu-english",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "private": true,
   "description": "UU说英语 · 儿童英语学习静态 H5；无需 npm install 或打包依赖",
   "scripts": {
@@ -14,7 +14,7 @@
     "test:voices": "node tests/verify-voice-default.cjs && node tests/verify-voice-pack-import.cjs && node tests/verify-voice-packs.cjs && python3 -B tests/verify-child-voice-generation.py",
     "test:child-audio": "node tests/verify-child-audio-catalog.cjs && node tests/verify-installed-child-audio.cjs",
     "test:playback": "node tests/verify-playback-rate-change.cjs",
-    "test:parents": "node tests/verify-parent-pages.cjs && node tests/verify-offline-management.cjs",
+    "test:parents": "node tests/verify-offline-upgrade.cjs && node tests/verify-parent-pages.cjs && node tests/verify-offline-management.cjs",
     "test:practice": "node tests/verify-sentence-resources.cjs && node tests/verify-practice-lab.cjs",
     "test:growth": "node tests/verify-growth.cjs",
     "test:progression": "node tests/verify-progression.cjs",
@@ -25,7 +25,8 @@
     "test:session": "node tests/verify-session-timing.cjs",
     "test:server": "python3 -B tests/verify-server-security.py",
     "test:server-browser": "node tests/verify-server-browser.cjs",
-    "test:categories": "node tests/verify-category-rails.cjs",
+    "test:categories": "node tests/verify-rail-gestures.cjs && node tests/verify-category-rails.cjs",
+    "test:spelling-games": "node tests/verify-spelling-games.cjs && node tests/verify-game-adventure.cjs && node tests/verify-game-text-size.cjs",
     "test:layout": "node tests/verify-page-layout.cjs",
     "test:release": "node tests/verify-release.cjs",
     "test:release-browser": "node tests/verify-release-browser.cjs"

@@ -2,7 +2,7 @@
 FROM public.ecr.aws/docker/library/nginx:1.30.6-alpine-slim@sha256:dede8895648b461178c3bc604f7eed4423efe5220b2c4d839f5eb3d34ac3f8f7
 
 LABEL org.opencontainers.image.title="UU说英语" \
-      org.opencontainers.image.version="1.0.1" \
+      org.opencontainers.image.version="1.1.0" \
       org.opencontainers.image.source="https://github.com/yangguanggit/uu-english"
 
 # Build dist with npm run build before building this image.

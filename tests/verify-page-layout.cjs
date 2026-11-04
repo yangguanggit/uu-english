@@ -24,7 +24,7 @@ const { output } = require('./helpers/paths.cjs');
       });
       assert.equal(artFits, true, 'theme artwork must not overlap the title');
       await page.locator('[data-child-nav=explore]').click();
-      assert.equal(await page.locator('.explore-main button').count(), 3);
+      assert.equal(await page.locator('.explore-main button').count(), 4);
       assert.equal(await page.locator('.explore-tools button').count(), 5);
       await shot('explore');
       await page.locator('[data-explore-section=foundation]').click();

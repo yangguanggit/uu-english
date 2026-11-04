@@ -17,6 +17,10 @@ const {output}=require('./helpers/paths.cjs');
       for(let i=1;i<=5;i++)await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:x+(vertical?0:direction*90*i/5),y:y+(vertical?70*i/5:0)}]});
       await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
     }
+    async function clickNext(selector,direction=-1){
+      const buttons=page.locator(selector+'>button'),index=await buttons.evaluateAll(bs=>bs.findIndex(b=>b.matches('[aria-pressed=true],[aria-current=page]')));
+      const next=index+(direction<0?1:-1);if(next>=0&&next<await buttons.count())await buttons.nth(next).click();
+    }
     async function rail(selector){
       const layout=await page.locator(selector).evaluate(nav=>({rows:new Set([...nav.children].map(b=>Math.round(b.getBoundingClientRect().top))).size,wrap:getComputedStyle(nav).flexWrap,overflow:nav.scrollWidth>nav.clientWidth,selected:[...nav.children].find(b=>b.matches('[aria-pressed=true]'))?.textContent}));
       assert.equal(layout.rows,1);assert.equal(layout.wrap,'nowrap');return layout;
@@ -27,24 +31,24 @@ const {output}=require('./helpers/paths.cjs');
     const order=['letters','phonemes','phonics','words','sentences'];
     assert.deepEqual(await page.locator('#foundation-panel [data-foundation-tab]').evaluateAll(bs=>bs.map(b=>b.dataset.foundationTab)),order);
     await rail('#foundation-panel .foundation-tabs');
-    await swipe('#foundation-panel .foundation-tabs');
+    await clickNext('#foundation-panel .foundation-tabs');
     assert.equal(await page.locator('#foundation-panel [data-foundation-tab=phonemes]').getAttribute('aria-pressed'),'true');
-    await swipe('#foundation-panel .foundation-tabs');
+    await clickNext('#foundation-panel .foundation-tabs');
     await page.locator('#phonics-workshop').waitFor();
     assert.deepEqual(await page.locator('[data-phonics-tab]').evaluateAll(bs=>bs.map(b=>b.dataset.phonicsTab)),order);
-    await swipe('.phonics-foundation-nav');
+    await clickNext('.phonics-foundation-nav');
     assert.equal(await page.locator('#foundation-panel [data-foundation-tab=words]').getAttribute('aria-pressed'),'true');
     assert.equal(await page.locator('[data-word-theme]').count(),40);
     await rail('#word-themes');
     const firstTheme=await page.locator('[data-word-theme][aria-pressed=true]').getAttribute('data-word-theme');
-    await swipe('#word-themes');
+    await clickNext('#word-themes');
     assert.notEqual(await page.locator('[data-word-theme][aria-pressed=true]').getAttribute('data-word-theme'),firstTheme);
-    await swipe('#foundation-panel .foundation-tabs');
+    await clickNext('#foundation-panel .foundation-tabs');
     await page.locator('.lab-card').waitFor();
     await rail('#features-panel .foundation-tabs');await rail('.lab-patterns');
-    await swipe('.lab-patterns');
+    await clickNext('.lab-patterns');
     assert.equal(await page.locator('[data-pattern=see]').getAttribute('aria-pressed'),'true');
-    await swipe('#features-panel .foundation-tabs',1);
+    await clickNext('#features-panel .foundation-tabs',1);
     assert.equal(await page.locator('#foundation-panel [data-foundation-tab=words]').getAttribute('aria-pressed'),'true');
     // Content gestures target the deepest active category and never fall through at an edge.
     await page.evaluate(()=>BearHub.show('foundation'));await page.locator('[data-foundation-tab=letters]:visible').click();
@@ -79,7 +83,7 @@ const {output}=require('./helpers/paths.cjs');
     const pageBefore=await page.locator('.story-top>span').innerText();await swipe('.story-page');
     assert.notEqual(await page.locator('.story-top>span').innerText(),pageBefore);
     assert.equal(await page.evaluate(()=>BearLearning.get().settings.readerMode),'independent');
-    await swipe('.reader-modes',1);assert.equal(await page.evaluate(()=>BearLearning.get().settings.readerMode),'follow');
+    await clickNext('.reader-modes',1);assert.equal(await page.evaluate(()=>BearLearning.get().settings.readerMode),'follow');
     await swipe('.story-top',1);assert.equal(await page.evaluate(()=>BearLearning.get().settings.readerMode),'listen');
     await page.evaluate(()=>BearHub.show('simulation'));await swipe('.simulation-intro h2');
     assert.equal(await page.locator('[data-simulation-scope=today]').getAttribute('aria-pressed'),'true');
@@ -112,19 +116,19 @@ const {output}=require('./helpers/paths.cjs');
     assert.equal(new Set(seen).size,50);
     await page.locator('[data-scene-group="0"]').click();
     const categoryIds=groups[0].ids;
-    await swipe('#category-grid');
+    await clickNext('#category-grid');
     assert.equal(await page.locator('[data-category][aria-pressed=true]').getAttribute('data-category'),categoryIds[1]);
     await swipe('#game-select');
     assert.equal(await page.locator('[data-category][aria-pressed=true]').getAttribute('data-category'),categoryIds[2]);
     assert.equal(await page.locator('#lesson-workspace').isVisible(),false);
-    await swipe('#category-grid',1);
+    await clickNext('#category-grid',1);
     assert.equal(await page.locator('[data-category][aria-pressed=true]').getAttribute('data-category'),categoryIds[1]);
     await swipe('#category-grid',-1,true);
     assert.equal(await page.locator('[data-category][aria-pressed=true]').getAttribute('data-category'),categoryIds[1]);
-    // A subcategory cannot swipe past its group. The primary rail moves between groups.
-    await page.locator(`[data-category="${categoryIds.at(-1)}"]`).click();await swipe('#category-grid');
+    // A subcategory cannot swipe past its group. Clicking the primary rail moves between groups.
+    await page.locator(`[data-category="${categoryIds.at(-1)}"]`).click();await clickNext('#category-grid');
     assert.equal(await page.locator('[data-category][aria-pressed=true]').getAttribute('data-category'),categoryIds.at(-1));
-    await swipe('#scene-groups');
+    await clickNext('#scene-groups');
     assert.equal(await page.locator('[data-scene-group="1"]').getAttribute('aria-pressed'),'true');
     await page.locator(`[data-category="${groups[1].ids.at(-1)}"]`).click();
     await page.reload();

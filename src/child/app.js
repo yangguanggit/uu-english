@@ -17,6 +17,7 @@
   }
   function pause() {
     reading.pause();
+    spelling.pause();
     BearChallenge.pause();
   }
   function open(next) {
@@ -70,6 +71,7 @@
         themes: themes.render,
         review: review.render,
         phonics: renderPhonics,
+        'spelling-games': () => spelling.renderHome(),
         books: reading.render,
         home: rewards.render,
         parents: renderParents,
@@ -99,6 +101,7 @@
     if (id) BearPhonics.select(id);
     open('phonics');
   }
+  const spelling = BearSpellingGames.create({root, heading, open});
   const library = BearChildLibrary.create({ root, heading, open });
   const reading = BearChildReading.create({
     root,
@@ -165,6 +168,12 @@
   };
 
   window.BearFeatures = {
+    spellingCheckpoint: () => spelling.checkpoint(),
+    restoreSpelling(saved, home=false) {
+      const current=spelling.checkpoint(),keep=home&&current.game&&saved?.mode===current.mode&&saved.kind===current.kind&&saved.group===current.group&&saved.level===current.level;
+      const playing=keep?false:spelling.restore(saved);
+      open('spelling-games');if(!home&&playing)spelling.resume();
+    },
     restoreMixedReview(saved) {
       open('review');
       BearLearningTools.restoreReview(root, saved);
@@ -214,6 +223,7 @@
       'today',
       'review',
       'phonics',
+      'spelling-games',
       'books',
       'home',
       'parents',

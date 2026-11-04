@@ -1,11 +1,21 @@
 /* Explicit theme downloads, all-or-nothing completion and verified browser cache. */
 (() => {
-  const BUILD='1.0.1',CACHE=`bear-themes-${BUILD}`,SHELL=`bear-shell-${BUILD}`,origin=location.origin;
+  const BUILD='1.1.0',CACHE=`bear-themes-${BUILD}`,SHELL=`bear-shell-${BUILD}`,origin=location.origin;
   const MEDIA='bear-media-sha256-v1';
   let catalogPromise,registration;
   const ready=(async()=>{
     if(!('serviceWorker' in navigator)||!isSecureContext)throw Error('离线包需要 HTTPS 或 localhost，请使用支持离线存储的浏览器');
     registration=await navigator.serviceWorker.register('sw.js',{scope:'./'});
+    // An existing controller may still serve the previous shell during an upgrade.
+    // Finish the update before reporting a newly downloaded package as ready.
+    try{await registration.update();}catch(error){if(!registration.active)throw error;}
+    const updating=registration.installing||registration.waiting;
+    if(updating&&updating.state!=='activated')await new Promise((resolve,reject)=>{
+      const finish=()=>{clearTimeout(timer);updating.removeEventListener('statechange',changed);};
+      const changed=()=>{if(updating.state==='activated'){finish();resolve();}else if(updating.state==='redundant'){finish();reject(Error('离线服务更新失败，请联网刷新重试'));}};
+      const timer=setTimeout(()=>{finish();reject(Error('离线服务更新超时，请联网刷新重试'));},12000);
+      updating.addEventListener('statechange',changed);changed();
+    });
     await navigator.serviceWorker.ready;
     if(!navigator.serviceWorker.controller)await new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(Error('离线服务尚未就绪，请刷新后重试')),12000);navigator.serviceWorker.addEventListener('controllerchange',()=>{clearTimeout(timer);resolve();},{once:true});});
     return registration;

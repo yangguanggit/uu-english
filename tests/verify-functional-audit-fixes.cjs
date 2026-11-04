@@ -124,8 +124,8 @@ const {chromium}=require('./helpers/browser.cjs'),{output}=require('./helpers/pa
  });
  await check('static scene descriptions match the loaded course totals',async p=>{
   const x=await p.evaluate(async()=>({html:await(await fetch('index.html')).text(),categories:BEAR_CATEGORIES.length,games:LITTLE_BEAR_ROUTE.length}));
-  assert.ok(x.html.includes(`${x.categories} 类生活场景与主题的 ${x.games} 个交流小游戏`));
-  assert.ok(x.html.includes(`${x.categories} 类场景 · ${x.games} 个小任务`));
+  assert.ok(x.html.includes(`${x.categories} 类生活场景与主题的 ${x.games} 段交流对话`));
+  assert.ok(x.html.includes(`${x.categories} 类场景 · ${x.games} 段对话`));
  });
  await check('all 500 paths resolve current review content and legacy backups remain valid',async p=>{
   const result=await p.evaluate(()=>{

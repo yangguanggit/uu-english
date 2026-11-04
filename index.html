@@ -1,18 +1,18 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta name="app-revision" content="736ce94113f572f6e39ee32c073fd995498e8eb35642177f296b620897ac7fc2">
+  <meta name="app-revision" content="51b5cc9a3e53c7bc80e10bf3d32bcf0289a681456f75b860d7f0ecb847e04333">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#fcf9f3">
-  <meta name="description" content="英语基础学习、50 类生活场景与主题的 250 个交流小游戏，以及随机场景模拟。">
+  <meta name="description" content="英语基础学习、50 类生活场景与主题的 250 段交流对话，以及随机场景模拟。">
   <title>UU说英语 · 生活冒险小镇</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E🐻%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles/base.css?v=1.0.1">
-  <link rel="stylesheet" href="styles/features.css?v=1.0.1">
-  <link rel="stylesheet" href="styles/growth.css?v=1.0.1">
-  <link rel="stylesheet" href="styles/tabs.css?v=1.0.1">
-  <link rel="stylesheet" href="styles/layout.css?v=1.0.1">
+  <link rel="stylesheet" href="styles/base.css?v=1.1.0">
+  <link rel="stylesheet" href="styles/features.css?v=1.1.0">
+  <link rel="stylesheet" href="styles/growth.css?v=1.1.0">
+  <link rel="stylesheet" href="styles/tabs.css?v=1.1.0">
+  <link rel="stylesheet" href="styles/layout.css?v=1.1.0">
 </head>
 <body>
   <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -34,10 +34,10 @@
     <div class="header-actions"><button id="sound-toggle" class="icon-button" aria-label="关闭声音" aria-pressed="true"><svg><use href="#icon-sound"/></svg></button><span class="header-divider"></span><button id="parent-button" class="parent-button"><span aria-hidden="true">⌘</span> 家长</button><button id="return-child" class="return-child" hidden>← 返回孩子页面</button><span class="avatar" aria-hidden="true">🌱</span></div>
   </header>
   <main class="page">
-    <section class="greeting"><div><p class="eyebrow">A LITTLE ENGLISH, A LITTLE ADVENTURE <span class="build-label">1.0.1</span></p><h1>早上好，小小探险家 <span class="sun" aria-hidden="true">☀</span></h1><p class="greeting-copy">今天，和米米一起做一顿美味早餐吧！</p></div><div class="daily-badge"><span class="badge-star"><svg><use href="#icon-star"/></svg></span><div><strong>每一次开口，都值得鼓励</strong><span>每天一小步，英语自然说</span></div></div></section>
+    <section class="greeting"><div><p class="eyebrow">A LITTLE ENGLISH, A LITTLE ADVENTURE <span class="build-label">1.1.0</span></p><h1>早上好，小小探险家 <span class="sun" aria-hidden="true">☀</span></h1><p class="greeting-copy">今天，和米米一起做一顿美味早餐吧！</p></div><div class="daily-badge"><span class="badge-star"><svg><use href="#icon-star"/></svg></span><div><strong>每一次开口，都值得鼓励</strong><span>每天一小步，英语自然说</span></div></div></section>
     <nav id="learning-modes" class="learning-modes" aria-label="学习方式">
       <button data-section="foundation"><span>🔤</span><strong>基础学习</strong><small>字母 · 音标 · 常用单词</small></button>
-      <button data-section="scenes"><span>🏡</span><strong>场景游戏</strong><small>50 类场景 · 250 个小任务</small></button>
+      <button data-section="scenes"><span>🏡</span><strong>场景对话</strong><small>50 类场景 · 250 段对话</small></button>
       <button data-section="simulation"><span>🧳</span><strong>场景模拟</strong><small>随机去五站 · 试着聊一聊</small></button>
     </nav>
     <nav class="discovery-nav" aria-label="探索工坊"><button data-feature="today">☀️ 今日小冒险</button><button data-feature="review">🎒 复习小口袋</button><button data-feature="phonics">🧩 自然拼读</button><button data-feature="books">📖 互动绘本</button><button data-feature="home">🧸 米米的小家</button></nav>
@@ -45,7 +45,7 @@
     <section id="features-panel" aria-label="探索工坊" hidden></section>
     <p id="playback-status" class="sr-playback" role="status" hidden></p>
     <section id="foundation-panel" aria-label="基础学习"></section>
-    <section id="catalog-panel" aria-label="场景游戏分类" hidden></section>
+    <section id="catalog-panel" aria-label="场景对话分类" hidden></section>
     <section id="simulation-panel" aria-label="随机场景模拟" hidden></section>
     <section id="lesson-workspace" hidden><button id="back-catalog" class="text-button back-catalog">← 返回关卡选择</button>
     <section id="scene-picker" class="scene-picker" aria-label="选择游戏场景"><div class="scene-picker-heading"><strong id="lesson-category-heading">家里的五个小任务</strong><span><span class="picker-count">本类 5 关 · 按顺序一起出发</span><span class="picker-hint">本类 5 关 · 左右滑动选择</span></span></div><div class="route-summary"><span id="route-position">第 01 / 10 站</span><span id="route-completed">本次已完成 0 / 10 站</span></div><div id="route-track" class="route-track" role="progressbar" aria-label="当前分类完成进度" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0"><span id="route-track-fill"></span></div><nav id="scene-switcher" class="scene-switcher" aria-label="游戏场景"></nav></section>
@@ -97,77 +97,81 @@
       </aside>
     </div>
     </section>
-    <footer class="page-footer"><span>为好奇心留一点空间，为每一次开口鼓掌。</span><span>✦ 轻轻学，大胆说 · 体验版 1.0.1 ✦</span></footer>
+    <footer class="page-footer"><span>为好奇心留一点空间，为每一次开口鼓掌。</span><span>✦ 轻轻学，大胆说 · 体验版 1.1.0 ✦</span></footer>
   </main>
   <nav class="mobile-nav" aria-label="儿童底部导航"><button data-child-nav="today"><span>☀️</span>今天</button><button data-child-nav="explore"><span>🧭</span>探索</button><button data-child-nav="books"><span>📖</span>书架</button></nav>
   <dialog id="info-dialog" class="info-dialog" aria-labelledby="dialog-title"><button id="close-dialog" class="close-dialog" aria-label="关闭弹窗">×</button><div id="dialog-content"></div></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script src="src/shared/ui/artwork.js?v=1.0.1"></script>
-  <script src="data/scenes/content-extra.js?v=1.0.1"></script>
-  <script src="data/scenes/scenes.js?v=1.0.1"></script>
-  <script src="data/scenes/scenes-extra.js?v=1.0.1"></script>
-  <script src="src/child/modules/scenes/catalog.js?v=1.0.1"></script>
-  <script src="data/foundation/foundation-data.js?v=1.0.1"></script>
-  <script src="src/shared/storage/profiles.js?v=1.0.1"></script>
-  <script src="data/themes/learning-themes.js?v=1.0.1"></script>
-  <script src="src/shared/ui/visuals.js?v=1.0.1"></script>
-  <script src="src/shared/learning/curriculum.js?v=1.0.1"></script>
-  <script src="src/shared/storage/learning-state.js?v=1.0.1"></script>
-  <script src="src/shared/audio/microphone.js?v=1.0.1"></script>
-  <script src="src/shared/ui/selects.js?v=1.0.1"></script>
-  <script src="src/shared/ui/category-rail.js?v=1.0.1"></script>
-  <script src="src/shared/ui/page-layout.js?v=1.0.1"></script>
-  <script src="src/shared/audio/voice-packs.js?v=1.0.1"></script>
-  <script src="src/shared/audio/voices.js?v=1.0.1"></script>
-  <script src="src/shared/audio/playback.js?v=1.0.1"></script>
-  <script src="src/shared/audio/player.js?v=1.0.1"></script>
-  <script src="src/child/modules/scenes/app.js?v=1.0.1"></script>
-  <script src="src/child/modules/foundation/foundation.js?v=1.0.1"></script>
-  <script src="src/child/hub.js?v=1.0.1"></script>
-  <script src="data/reading/books-data.js?v=1.0.1"></script>
-  <script src="src/shared/storage/offline.js?v=1.0.1"></script>
-  <script src="src/parent/modules/children/children.js?v=1.0.1"></script>
-  <script src="src/parent/modules/backup/backup.js?v=1.0.1"></script>
-  <script src="src/parent/modules/plan/plan.js?v=1.0.1"></script>
-  <script src="src/parent/modules/offline/offline.js?v=1.0.1"></script>
-  <script src="src/parent/family.js?v=1.0.1"></script>
-  <script src="src/shared/navigation.js?v=1.0.1"></script>
-  <script src="data/foundation/phonics-data.js?v=1.0.1"></script>
-  <script src="data/foundation/phonics-course.js?v=1.0.1"></script>
-  <script src="src/child/modules/phonics/phonics.js?v=1.0.1"></script>
-  <script src="src/shared/learning/learning-tools.js?v=1.0.1"></script>
-  <script src="data/scenes/reply-variants.js?v=1.0.1"></script>
-  <script src="src/shared/learning/growth.js?v=1.0.1"></script>
-  <script src="data/reading/reading-activities.js?v=1.0.1"></script>
-  <script src="data/scenes/reply-audio.js?v=1.0.1"></script>
-  <script src="data/scenes/branch-dialogues.js?v=1.0.1"></script>
-  <script src="src/shared/learning/progression.js?v=1.0.1"></script>
-  <script src="data/scenes/sentence-patterns.js?v=1.0.1"></script>
-  <script src="src/shared/learning/roleplay.js?v=1.0.1"></script>
-  <script src="src/shared/learning/sentences.js?v=1.0.1"></script>
-  <script src="src/shared/content/review.js?v=1.0.1"></script>
-  <script src="src/shared/storage/practice-drafts.js?v=1.0.1"></script>
-  <script src="src/child/modules/practice/page.js?v=1.0.1"></script>
-  <script src="src/child/modules/sentences/sentences.js?v=1.0.1"></script>
-  <script src="src/child/modules/roleplay/roleplay.js?v=1.0.1"></script>
-  <script src="src/child/modules/activities/page.js?v=1.0.1"></script>
-  <script src="src/child/modules/assessment/assessment.js?v=1.0.1"></script>
-  <script src="src/child/modules/listening-games/listening-games.js?v=1.0.1"></script>
-  <script src="src/child/modules/reading/activities.js?v=1.0.1"></script>
-  <script src="src/child/growth.js?v=1.0.1"></script>
-  <script src="src/parent/modules/learning-settings/learning-settings.js?v=1.0.1"></script>
-  <script src="src/parent/modules/content-review/content-review.js?v=1.0.1"></script>
-  <script src="src/parent/space.js?v=1.0.1"></script>
-  <script src="src/child/modules/scenes/challenge.js?v=1.0.1"></script>
-  <script src="src/child/modules/library/library.js?v=1.0.1"></script>
-  <script src="src/child/modules/today/today.js?v=1.0.1"></script>
-  <script src="src/child/modules/explore/explore.js?v=1.0.1"></script>
-  <script src="src/child/modules/themes/themes.js?v=1.0.1"></script>
-  <script src="src/child/modules/review/review.js?v=1.0.1"></script>
-  <script src="src/child/modules/rewards/rewards.js?v=1.0.1"></script>
-  <script src="src/child/modules/reading/reading.js?v=1.0.1"></script>
-  <script src="src/child/app.js?v=1.0.1"></script>
-  <script src="src/shared/learning/session.js?v=1.0.1"></script>
-  <script src="src/shared/ui/updates.js?v=1.0.1"></script>
+  <script src="src/shared/ui/artwork.js?v=1.1.0"></script>
+  <script src="data/scenes/content-extra.js?v=1.1.0"></script>
+  <script src="data/scenes/scenes.js?v=1.1.0"></script>
+  <script src="data/scenes/scenes-extra.js?v=1.1.0"></script>
+  <script src="src/child/modules/scenes/catalog.js?v=1.1.0"></script>
+  <script src="data/foundation/foundation-data.js?v=1.1.0"></script>
+  <script src="src/shared/storage/profiles.js?v=1.1.0"></script>
+  <script src="data/themes/learning-themes.js?v=1.1.0"></script>
+  <script src="src/shared/ui/visuals.js?v=1.1.0"></script>
+  <script src="src/shared/learning/curriculum.js?v=1.1.0"></script>
+  <script src="src/shared/storage/learning-state.js?v=1.1.0"></script>
+  <script src="src/shared/audio/microphone.js?v=1.1.0"></script>
+  <script src="src/shared/ui/selects.js?v=1.1.0"></script>
+  <script src="src/shared/ui/category-rail.js?v=1.1.0"></script>
+  <script src="src/shared/ui/page-layout.js?v=1.1.0"></script>
+  <script src="src/shared/audio/voice-packs.js?v=1.1.0"></script>
+  <script src="src/shared/audio/voices.js?v=1.1.0"></script>
+  <script src="src/shared/audio/playback.js?v=1.1.0"></script>
+  <script src="src/shared/audio/player.js?v=1.1.0"></script>
+  <script src="src/child/modules/scenes/app.js?v=1.1.0"></script>
+  <script src="src/child/modules/foundation/foundation.js?v=1.1.0"></script>
+  <script src="src/child/hub.js?v=1.1.0"></script>
+  <script src="data/reading/books-data.js?v=1.1.0"></script>
+  <script src="src/shared/storage/offline.js?v=1.1.0"></script>
+  <script src="src/parent/modules/children/children.js?v=1.1.0"></script>
+  <script src="src/parent/modules/backup/backup.js?v=1.1.0"></script>
+  <script src="src/parent/modules/plan/plan.js?v=1.1.0"></script>
+  <script src="src/parent/modules/offline/offline.js?v=1.1.0"></script>
+  <script src="src/parent/family.js?v=1.1.0"></script>
+  <script src="src/shared/navigation.js?v=1.1.0"></script>
+  <script src="data/foundation/phonics-data.js?v=1.1.0"></script>
+  <script src="data/foundation/phonics-course.js?v=1.1.0"></script>
+  <script src="src/child/modules/phonics/phonics.js?v=1.1.0"></script>
+  <script src="src/shared/learning/learning-tools.js?v=1.1.0"></script>
+  <script src="data/scenes/reply-variants.js?v=1.1.0"></script>
+  <script src="src/shared/learning/game-levels.js?v=1.1.0"></script>
+  <script src="src/shared/learning/growth.js?v=1.1.0"></script>
+  <script src="data/reading/reading-activities.js?v=1.1.0"></script>
+  <script src="data/scenes/reply-audio.js?v=1.1.0"></script>
+  <script src="data/scenes/branch-dialogues.js?v=1.1.0"></script>
+  <script src="src/shared/learning/progression.js?v=1.1.0"></script>
+  <script src="data/scenes/sentence-patterns.js?v=1.1.0"></script>
+  <script src="src/shared/learning/roleplay.js?v=1.1.0"></script>
+  <script src="src/shared/learning/sentences.js?v=1.1.0"></script>
+  <script src="src/shared/content/review.js?v=1.1.0"></script>
+  <script src="src/shared/storage/practice-drafts.js?v=1.1.0"></script>
+  <script src="src/child/modules/practice/page.js?v=1.1.0"></script>
+  <script src="src/child/modules/sentences/sentences.js?v=1.1.0"></script>
+  <script src="src/child/modules/roleplay/roleplay.js?v=1.1.0"></script>
+  <script src="src/child/modules/activities/page.js?v=1.1.0"></script>
+  <script src="src/child/modules/assessment/assessment.js?v=1.1.0"></script>
+  <script src="src/child/modules/listening-games/listening-games.js?v=1.1.0"></script>
+  <script src="src/child/modules/reading/activities.js?v=1.1.0"></script>
+  <script src="src/child/growth.js?v=1.1.0"></script>
+  <script src="src/parent/modules/learning-settings/learning-settings.js?v=1.1.0"></script>
+  <script src="src/parent/modules/content-review/content-review.js?v=1.1.0"></script>
+  <script src="src/parent/space.js?v=1.1.0"></script>
+  <script src="src/child/modules/scenes/challenge.js?v=1.1.0"></script>
+  <script src="src/child/modules/library/library.js?v=1.1.0"></script>
+  <script src="src/child/modules/today/today.js?v=1.1.0"></script>
+  <script src="src/child/modules/explore/explore.js?v=1.1.0"></script>
+  <script src="src/child/modules/themes/themes.js?v=1.1.0"></script>
+  <script src="src/child/modules/review/review.js?v=1.1.0"></script>
+  <script src="src/child/modules/rewards/rewards.js?v=1.1.0"></script>
+  <script src="src/child/modules/reading/reading.js?v=1.1.0"></script>
+  <script src="src/child/modules/spelling-games/play-boards.js?v=1.1.0"></script>
+  <script src="src/child/modules/spelling-games/adventure.js?v=1.1.0"></script>
+  <script src="src/child/modules/spelling-games/spelling-games.js?v=1.1.0"></script>
+  <script src="src/child/app.js?v=1.1.0"></script>
+  <script src="src/shared/learning/session.js?v=1.1.0"></script>
+  <script src="src/shared/ui/updates.js?v=1.1.0"></script>
 </body>
 </html>

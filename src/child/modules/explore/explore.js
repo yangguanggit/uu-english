@@ -9,11 +9,12 @@
           heading('🧭', '今天想探索什么？', '选一个喜欢的玩法，跟着自己的节奏学。') +
           `<section class="explore-main" aria-label="主要学习入口">${[
             ['foundation', '🔤', '基础学习', '字母、音标、自然拼读、常用单词与句型积木'],
+            ['spelling-games', '🎮', '拼读游戏', '10 种玩法：听音、拼词、串句、记忆与寻宝'],
             [
               'scenes',
               '🏡',
-              '场景游戏',
-              `${BEAR_CATEGORIES.length} 类场景，${LITTLE_BEAR_ROUTE.length} 个交流小游戏`,
+              '场景对话',
+              `${BEAR_CATEGORIES.length} 类场景，${LITTLE_BEAR_ROUTE.length} 段交流对话`,
             ],
             ['simulation', '🧳', '场景模拟', '选择练习范围，最多去五站'],
           ]
@@ -42,7 +43,9 @@
         root.querySelectorAll('[data-explore-section]').forEach(
           (b) =>
             (b.onclick = () => {
-              BearHub.show(b.dataset.exploreSection);
+              b.dataset.exploreSection === 'spelling-games'
+                ? open('spelling-games')
+                : BearHub.show(b.dataset.exploreSection);
               window.scrollTo({ top: 0, behavior: 'instant' });
             }),
         );

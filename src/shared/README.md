@@ -16,9 +16,10 @@
 | learning/curriculum.js、learning-tools.js | 课程关联、搜索、复习、足迹与周报 |
 | learning/growth.js、progression.js | 证据分层、题库、听完门禁、分支与跨情境练习 |
 | learning/roleplay.js、sentences.js | 角色轮次、关联场景的练习音频资源 |
+| learning/game-levels.js | 拼读游戏十级题量、词句复杂度分池及关卡进度校验（非阅读等级评估） |
 | learning/session.js | 可见且最近一分钟有操作时的近似活跃计时与休息提醒 |
 | content/review.js | 人工审校状态、内容指纹及重审判定 |
-| ui/ | page-layout.js 组合吸顶分类栏并测量高度；下拉框、语义配图、内容更新提示；category-rail.js 统一分类数量标签（单项省略）、单行导航、点击／内容区横滑切换、嵌套分类隔离、监听清理与防误触；styles/tabs.css 统一主／子级分类样式 |
+| ui/ | page-layout.js 组合吸顶分类栏并测量高度；下拉框、语义配图、内容更新提示；category-rail.js 统一分类数量标签（单项省略）、单行导航、点击切换、菜单栏拖动只滚动自身／内容区横滑切换最下层、嵌套分类隔离、监听清理与防误触；styles/tabs.css 统一主／子级分类样式 |
 
 ## 音频约定
 

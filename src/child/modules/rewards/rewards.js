@@ -9,7 +9,7 @@
       const esc = BearGrowth.esc;
       const decorations = [
         { id: 'rug', emoji: '🌼', name: '小花地毯', key: 'voice', why: '完成一次开口练习' },
-        { id: 'cup', emoji: '☕', name: '早餐杯', key: 'scene', why: '完成一个场景游戏' },
+        { id: 'cup', emoji: '☕', name: '早餐杯', key: 'scene', why: '完成一个场景对话' },
         { id: 'plant', emoji: '🪴', name: '窗边绿植', key: 'exchange', why: '完成三轮交流' },
         { id: 'lamp', emoji: '💡', name: '阅读小灯', key: 'book', why: '完成一本绘本并答题' },
         { id: 'blocks', emoji: '🧩', name: '字母积木', key: 'phonics', why: '完成一次拼读挑战' },
@@ -55,7 +55,7 @@
                 action.hidden = false;
                 action.textContent = {
                   voice: '去跟读一个单词',
-                  scene: '去玩场景游戏',
+                  scene: '去练场景对话',
                   exchange: '去练三轮交流',
                   book: '去读今天的绘本',
                   phonics: '去完成拼读挑战',

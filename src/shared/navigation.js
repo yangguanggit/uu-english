@@ -18,7 +18,8 @@
   function checkpoint(entry){
     if(!entry)return;
     entry.scroll=scrollY;
-    if(entry.key==='section:foundation')entry.data=BearFoundation.checkpoint();
+    if(entry.key==='feature:spelling-games'||entry.key==='spelling:play')entry.data=BearFeatures.spellingCheckpoint();
+    else if(entry.key==='section:foundation')entry.data=BearFoundation.checkpoint();
     else if(entry.key==='feature:phonics')entry.data=BearPhonics.checkpoint();
     else if(entry.key.startsWith('lesson:'))entry.data={lesson:BearLesson.checkpoint(),hub:BearHub.checkpoint()};
     else if(entry.key.startsWith('section:'))entry.data=BearHub.checkpoint();
@@ -36,13 +37,15 @@
     const key=entry?.key;
     if(typeof key!=='string')return null;
     const [kind,id]=key.split(':');
-    if(kind==='feature'&&['landing','explore','themes','today','review','phonics','books','home','parents','library'].includes(id))return ()=>{
+    if(kind==='feature'&&['landing','explore','themes','today','review','phonics','books','home','parents','library','spelling-games'].includes(id))return ()=>{
+      if(id==='spelling-games'){BearFeatures.restoreSpelling(entry.data,true);return;}
       if(id==='books'){BearFeatures.openBooks(entry.data?.bookLevel||'L1');return;}
       if(id==='library'){BearFeatures.openLibrary(entry.data||{});return;}
       if(id==='phonics')BearPhonics.restore(entry.data);
       if(id==='parents'){BearFeatures.openParents(entry.data?.parentTab||'practice');return;}
       BearFeatures.open(id);
     };
+    if(key==='spelling:play')return ()=>BearFeatures.restoreSpelling(entry.data);
     if(kind==='lab'&&(id==='sentences'&&BEAR_SENTENCE_PATTERNS.some(p=>p.id===key.slice(14))||id==='role'&&Object.hasOwn(LITTLE_BEAR_SCENES,key.slice(9))))return ()=>id==='sentences'?BearSentenceBlocks.open(key.slice(14)):BearRoleplay.open(key.slice(9));
     if(kind==='growth'&&['assessment','assessment-result','games','game-basket','game-bag','game-order'].includes(id))return ()=>BearGrowth.restore(id);
     if(kind==='parent-detail'&&['updates','assessment','quality','report','weak','familyGame','plan','playback','children','backup','downloads','storage'].includes(id))return ()=>BearFeatures.openParents(entry.data?.parentTab||'practice',id);
